@@ -15,25 +15,24 @@
     <meta name="description" content="description">
     <meta name="author" content="p-themes">
 
-    <meta name="apple-mobile-web-app-title" content="Molla">
-    <meta name="application-name" content="Molla">
+    <meta name="apple-mobile-web-app-title" content="JBMM">
+    <meta name="application-name" content="JMBB">
     <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/icons/site.html">
-    <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#666666">
-    <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/img/jbmm_favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/img/jbmm_favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/img/jbmm_favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('frontend/img/jbmm_favicon.png') }}">
 
 
     @include('libraries.frontend.styles')
+    @livewireStyles
 </head>
 
 <body>
+
     <div class="page-wrapper">
         @include('components.frontend.header')
 
@@ -42,10 +41,13 @@
         </main>
 
         @include('components.frontend.footer')
+    </div>
 
-    </div><!-- End .page-wrapper -->
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    @include('components.frontend.mobile_and_modals')
     @include('libraries.frontend.scripts')
+    @livewireScripts
 </body>
 
 </html>

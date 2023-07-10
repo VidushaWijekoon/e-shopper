@@ -36,8 +36,12 @@
                         <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li>
                     </ul>
                 </li>
-            </ul><!-- End .top-menu -->
-        </div><!-- End .header-right -->
+            </ul>
+            <!-- End .top-menu -->
+        </div>
+        <!-- End .header-right -->
 
-    </div><!-- End .container -->
-</div><!-- End .header-top -->
+    </div>
+    <!-- End .container -->
+</div>
+<!-- End .header-top -->
