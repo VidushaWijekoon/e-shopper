@@ -1,10 +1,11 @@
-<div class="header-bottom sticky-header">
+<div class="header-bottom sticky-header" style="background: #f5f6f9">
     <div class="container">
         <div class="header-left">
-            <div class="dropdown category-dropdown">
+            <div class="dropdown category-dropdown" style="background: #6acce2">
                 <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" data-display="static" title="Browse Categories">
-                    Browse Categories <i class="icon-angle-down"></i>
+                    Browse Categories
+                    <i class="icon-angle-down"></i>
                 </a>
 
                 <div class="dropdown-menu">
@@ -26,31 +27,11 @@
                     </nav>
                     <!-- End .side-nav -->
                 </div>
+
                 <!-- End .dropdown-menu -->
             </div><!-- End .category-dropdown -->
         </div><!-- End .header-left -->
 
-        <div class="header-center">
-            <nav class="main-nav">
-                <ul class="menu sf-arrows">
-                    <li class="megamenu-container active">
-                        <a href="" class="">Home</a>
-                    </li>
-                    <li>
-                        <a href="#" class="">About Us</a>
-                    </li>
-
-                </ul>
-                <!-- End .menu -->
-            </nav>
-            <!-- End .main-nav -->
-        </div>
-        <!-- End .header-center -->
-
-        <div class="header-right">
-            <i class="la la-lightbulb-o"></i>
-            <p>Clearance<span class="highlight">&nbsp;Up to 30% Off</span></p>
-        </div>
     </div>
     <!-- End .container -->
 </div>

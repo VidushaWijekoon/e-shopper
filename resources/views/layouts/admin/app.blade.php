@@ -20,6 +20,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+        rel="stylesheet">
+
     @include('libraries.admin.styles')
     @livewireStyles
 </head>

@@ -26,6 +26,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/img/jbmm_favicon.png') }}">
     <link rel="shortcut icon" href="{{ asset('frontend/img/jbmm_favicon.png') }}">
 
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+        rel="stylesheet">
 
     @include('libraries.frontend.styles')
     @livewireStyles
