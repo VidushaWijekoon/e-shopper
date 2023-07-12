@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Create Category</h4>
+                    <h4 style="color: #e9ecef">Edit Category ID {{ $categories->id }}</h4>
                 </span>
             </div>
 
@@ -19,14 +19,16 @@
                 </div>
                 @endif
 
-                <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('admin/category/' . $categories->id ) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Category Title"
+                            <input type="text" id="Title" class="form-control" value="{{ $categories->title }}"
                                 name="title">
                             @error('title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
@@ -34,7 +36,8 @@
                             <label for="Slug" class="form-label">Slug
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Slug" class="form-control" placeholder="Category Slug" name="slug">
+                            <input type="text" id="Slug" class="form-control" value="{{ $categories->slug }}"
+                                name="slug">
                             @error('slug') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -45,7 +48,7 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <textarea type="text" id="Slug" class="form-control" rows="3"
-                                placeholder="Category Description" name="description"></textarea>
+                                name="description">{{ $categories->description }}</textarea>
                             @error('description') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -57,6 +60,8 @@
                             </label>
                             <input type="file" id="Image" class="form-control" name="image"
                                 accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
+                            <img src="{{ asset($categories->image) }}" alt="{{ $categories->title  }}" class="mt-2"
+                                style="width: 150px; display: block;">
                             @error('image') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -68,7 +73,7 @@
                             <label for="Title" class="form-label">Meta Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Meta Tile"
+                            <input type="text" id="Title" class="form-control" value="{{ $categories->meta_title }}"
                                 name="meta_title">
                             @error('meta_title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
@@ -76,7 +81,7 @@
                             <label for="Keyword" class="form-label">Meta Keyword
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Slug" class="form-control" placeholder="Meta Keyword"
+                            <input type="text" id="Slug" class="form-control" value="{{ $categories->meta_keyword }}"
                                 name="meta_keyword">
                             @error('meta_keyword') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
@@ -87,8 +92,8 @@
                             <label for="Slug" class="form-label">Meta Description
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea type="text" id="Slug" class="form-control" rows="3" placeholder="Meta Description"
-                                name="meta_description"></textarea>
+                            <textarea type="text" id="Slug" class="form-control" rows="3"
+                                name="meta_description">{{ $categories->meta_description }}</textarea>
                             @error('meta_description') <span class="text-danger text-capitalize">{{ $message }}</span>
                             @enderror
                         </div>
@@ -96,7 +101,7 @@
 
                     <hr class="mb-3 mt-4">
 
-                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Category</button>
+                    <button type="submit" class="btn btn-sm btn-info float-end">Update Category</button>
 
                 </form>
 
