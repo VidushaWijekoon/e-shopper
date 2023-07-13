@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomepageController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ColourController;
 use App\Http\Controllers\Frontend\HomapageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,5 +36,17 @@ Route::prefix('/admin')->group(function () {
         Route::get('/category/{category}/edit', 'edit')->name('admin.category.edit');
         Route::put('/category/{category}/', 'update')->name('admin.category.update');
         Route::get('/category/{category}/destroy', 'destroy')->name('admin.category.destroy');
+    });
+
+    Route::controller(BrandController::class)->group(function () {
+        Route::get('/brand-color', 'index')->name('admin.brand');
+        Route::get('/brand/create', 'create')->name('admin.brand.create');
+        Route::post('/brand/', 'store')->name('admin.brand.store');
+    });
+    
+    Route::controller(ColourController::class)->group(function () {
+        Route::get('/brand-colour', 'index')->name('admin.colour');
+        Route::get('/colour/create', 'create')->name('admin.colour.create');
+        Route::post('/colour/', 'store')->name('admin.colour.store');
     });
 });

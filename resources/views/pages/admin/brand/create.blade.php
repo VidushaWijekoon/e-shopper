@@ -1,12 +1,11 @@
 @extends('layouts.admin.app')
 @section('content')
 <div class="row">
-
     <div class="col-md-9">
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Edit Category ID {{ $categories->id }}</h4>
+                    <h4 style="color: #e9ecef">Create New Brand</h4>
                 </span>
             </div>
 
@@ -20,25 +19,40 @@
                 </div>
                 @endif
 
-                <form action="{{ url('admin/category/' . $categories->id ) }}" method="POST"
-                    enctype="multipart/form-data">
+                <form action="{{ route('admin.brand.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
+
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
+                            <label for="Category" class="form-label">Category
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Please Select Category</option>
+                                @foreach ($category as $categoryItem)
+                                <option value="{{ $categoryItem->id }}">{{ $$categoryItem->title }}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id') <span class="text-danger mt-1">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" value="{{ $categories->title }}"
-                                name="title">
+                            <input type="text" id="Title" class="form-control" placeholder="Brand Title" name="title">
                             @error('title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
-                        <div class="col-md-6">
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
                             <label for="Slug" class="form-label">Slug
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Slug" class="form-control" value="{{ $categories->slug }}"
-                                name="slug">
+                            <input type="text" id="Slug" class="form-control" placeholder="Brand Slug" name="slug">
                             @error('slug') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -49,7 +63,7 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <textarea type="text" id="Slug" class="form-control" rows="3"
-                                name="description">{{ $categories->description }}</textarea>
+                                placeholder="Brand Description" name="description"></textarea>
                             @error('description') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -61,48 +75,35 @@
                             </label>
                             <input type="file" id="Image" class="form-control" name="image"
                                 accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
-                            <img src="{{ asset($categories->image) }}" alt="{{ $categories->title  }}" class="mt-2"
-                                style="width: 150px; display: block;">
                             @error('image') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
 
+                    <div class="row mb-3">
+                        <div class="col-md-6 col-sm-12">
+                            <label for="Image" class="form-label">Status
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="visible" value="0">
+                                    <label class="form-check-label" for="visible">Visible</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
+                                        value="0">
+                                    <label class="form-check-label" for="inlineRadio2">Hide</label>
+                                </div>
+                            </div>
+                        </div>
+                        @error('status') <span class="text-danger mt-1">{{ $message }}</span> @enderror
+                    </div>
+
+
+
                     <hr class=" mb-3 mt-4">
 
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="Title" class="form-label">Meta Title
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="text" id="Title" class="form-control" value="{{ $categories->meta_title }}"
-                                name="meta_title">
-                            @error('meta_title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
-                        </div>
-                        <div class="col-md-6">
-                            <label for="Keyword" class="form-label">Meta Keyword
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="text" id="Slug" class="form-control" value="{{ $categories->meta_keyword }}"
-                                name="meta_keyword">
-                            @error('meta_keyword') <span class="text-danger mt-1">{{ $message }}</span> @enderror
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col md-12">
-                            <label for="Slug" class="form-label">Meta Description
-                                <span class="text-danger">*</span>
-                            </label>
-                            <textarea type="text" id="Slug" class="form-control" rows="3"
-                                name="meta_description">{{ $categories->meta_description }}</textarea>
-                            @error('meta_description') <span class="text-danger text-capitalize">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <hr class="mb-3 mt-4">
-
-                    <button type="submit" class="btn btn-sm btn-info float-end">Update Category</button>
+                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Brand</button>
 
                 </form>
 
@@ -115,18 +116,18 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Existing Category</h4>
+                    <h4 style="color: #e9ecef">Existing Brand</h4>
                 </span>
             </div>
 
             <div class="card-body">
                 <div class="table-responsive">
-                    @forelse ($allCateogry as $categoryItem)
+                    @forelse ($brand as $brandItem)
                     <div class="d-flex justify-content-between">
 
-                        <span class="d-flex align-items-center">{{ $categoryItem->title }}</span>
+                        <span class="d-flex align-items-center">{{ $brandItem->title }}</span>
                         <span>
-                            <img src="{{ asset($categoryItem->image) }}" alt="{{$categoryItem->title}}" height="50">
+                            <img src="{{ asset($brandItem->image) }}" alt="{{$brandItem->title}}" height="50">
                         </span>
 
                     </div>
@@ -138,6 +139,5 @@
 
         </div>
     </div>
-
 </div>
 @endsection

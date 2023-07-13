@@ -1,7 +1,8 @@
 @extends('layouts.admin.app')
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+
+    <div class="col-md-9">
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
@@ -104,5 +105,34 @@
 
         </div>
     </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header" style="background: #222e3c">
+                <span class="card-title mb-0 d-flex justify-content-between">
+                    <h4 style="color: #e9ecef">Existing Category</h4>
+                </span>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    @forelse ($categories as $categoryItem)
+                    <div class="d-flex justify-content-between">
+
+                        <span class="d-flex align-items-center">{{ $categoryItem->title }}</span>
+                        <span>
+                            <img src="{{ asset($categoryItem->image) }}" alt="{{$categoryItem->title}}" height="50">
+                        </span>
+
+                    </div>
+                    @empty
+                    <span>No Category Has Been Created</span>
+                    @endforelse
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>
 @endsection

@@ -23,17 +23,10 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ 'admin/brand' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
+            <li class="sidebar-item {{ 'admin/brand-color' == request()->path() ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('admin.brand') }}">
                     <i class="align-middle" data-feather="copy"></i>
-                    <span class="align-middle">Brand</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item {{ 'admin/colour' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
-                    <i class="align-middle" data-feather="disc"></i>
-                    <span class="align-middle">Colour</span>
+                    <span class="align-middle">Brand & Colour</span>
                 </a>
             </li>
 

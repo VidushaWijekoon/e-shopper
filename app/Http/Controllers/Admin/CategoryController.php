@@ -18,7 +18,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('pages.admin.category.create');
+        $categories = Category::all();
+        return view('pages.admin.category.create', compact('categories'));
     }
 
     public function store(CategoryRequestForm $request)
@@ -57,7 +58,8 @@ class CategoryController extends Controller
     public function edit($category)
     {
         $categories = Category::findOrFail($category);
-        return view('pages.admin.category.edit', ['categories' => $categories]);
+        $allCateogry = Category::all();
+        return view('pages.admin.category.edit', ['categories' => $categories, 'allCateogry' => $allCateogry]);
     }
 
     public function update(CategoryRequestForm $request, $category)
