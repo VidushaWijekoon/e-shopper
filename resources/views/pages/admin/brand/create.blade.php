@@ -27,10 +27,10 @@
                             <label for="Category" class="form-label">Category
                                 <span class="text-danger">*</span>
                             </label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" name="category_id">
                                 <option selected>Please Select Category</option>
-                                @foreach ($category as $categoryItem)
-                                <option value="{{ $categoryItem->id }}">{{ $$categoryItem->title }}</option>
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->title }}</option>
                                 @endforeach
                             </select>
                             @error('category_id') <span class="text-danger mt-1">{{ $message }}</span> @enderror

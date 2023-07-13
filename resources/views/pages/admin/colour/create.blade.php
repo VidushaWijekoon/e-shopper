@@ -19,17 +19,32 @@
                 </div>
                 @endif
 
-                <form action="{{ route('admin.colour.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.colour.store') }}" method="POST">
                     @csrf
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="Category" class="form-label">Category
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select" name="category_id">
+                                <option selected>Please Select Category</option>
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id') <span class="text-danger mt-1">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
                     <div class="row mb-3">
                         <div class="col-md-12">
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Colour Title" name="title">
+                            <input type="text" id="Title" class="form-control" placeholder="Brand Title" name="title">
                             @error('title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
-
                     </div>
 
                     <div class="row mb-3">
@@ -37,7 +52,7 @@
                             <label for="Slug" class="form-label">Slug
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Slug" class="form-control" placeholder="Colour Slug" name="slug">
+                            <input type="text" id="Slug" class="form-control" placeholder="Brand Slug" name="slug">
                             @error('slug') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -48,19 +63,8 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <textarea type="text" id="Slug" class="form-control" rows="3"
-                                placeholder="Colour Description" name="description"></textarea>
+                                placeholder="Brand Description" name="description"></textarea>
                             @error('description') <span class="text-danger mt-1">{{ $message }}</span> @enderror
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="Image" class="form-label">Image
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="file" id="Image" class="form-control" name="image"
-                                accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
-                            @error('image') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
 
@@ -71,22 +75,24 @@
                             </label>
                             <div class="">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Visible</label>
+                                    <input class="form-check-input" type="radio" name="status" id="visible" value="0">
+                                    <label class="form-check-label" for="visible">Visible</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="option2">
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
+                                        value="0">
                                     <label class="form-check-label" for="inlineRadio2">Hide</label>
                                 </div>
                             </div>
                         </div>
+                        @error('status') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                     </div>
+
+
 
                     <hr class=" mb-3 mt-4">
 
-                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Colour</button>
+                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Brand</button>
 
                 </form>
 

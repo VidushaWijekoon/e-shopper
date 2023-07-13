@@ -42,11 +42,19 @@ Route::prefix('/admin')->group(function () {
         Route::get('/brand-color', 'index')->name('admin.brand');
         Route::get('/brand/create', 'create')->name('admin.brand.create');
         Route::post('/brand/', 'store')->name('admin.brand.store');
+        Route::get('/brand/{brand}/show', 'show')->name('admin.brand.show');
+        Route::get('/brand/{brand}/edit', 'edit')->name('admin.brand.edit');
+        Route::put('/brand/{brand}/', 'update')->name('admin.brand.update');
+        Route::get('/brand/{brand}/destroy', 'destroy')->name('admin.brand.destroy');
     });
-    
+
     Route::controller(ColourController::class)->group(function () {
         Route::get('/brand-colour', 'index')->name('admin.colour');
         Route::get('/colour/create', 'create')->name('admin.colour.create');
         Route::post('/colour/', 'store')->name('admin.colour.store');
+        Route::get('/colour/{colour}/show', 'show')->name('admin.colour.show');
+        Route::get('/colour/{colour}/edit', 'edit')->name('admin.colour.edit');
+        Route::put('/colour/{colour}/', 'update')->name('admin.colour.update');
+        Route::get('/colour/{colour}/destroy', 'destroy')->name('admin.colour.destroy');
     });
 });

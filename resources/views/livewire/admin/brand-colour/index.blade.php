@@ -42,16 +42,16 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/category/' . $brandItem->id . '/show' ) }}">
+                                    <a href="{{ url('admin/brand/' . $brandItem->id . '/show' ) }}">
                                         <i class="fa-solid fa-eye text-info mx-1" data-toggle="tooltip"
                                             data-placement="bottom" title="Show {{ $brandItem->title }}"></i>
                                     </a>
-                                    <a href="{{ url('admin/category/' . $brandItem->id . '/edit' ) }}">
+                                    <a href="{{ url('admin/brand/' . $brandItem->id . '/edit' ) }}">
                                         <i class="fa-solid fa-pen-to-square text-primary mx-1" data-toggle="tooltip"
                                             data-placement="bottom" title="Edit {{ $brandItem->title }}"></i>
                                     </a>
-                                    <a href="{{ url('admin/category/' . $brandItem->id . '/destroy') }}"
-                                        onclick="return confirm('Are you sure you want to delete this {{ $brandItem->title }} category')">
+                                    <a href="{{ url('admin/brand/' . $brandItem->id . '/destroy') }}"
+                                        onclick="return confirm('Are you sure you want to delete this {{ $brandItem->title }} brand')">
                                         <i class="fa-solid fa-trash text-danger mx-1" data-toggle="tooltip"
                                             data-placement="bottom" title="Delete">
                                         </i>
@@ -111,15 +111,15 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/category/' . $colourItem->id . '/show' ) }}">
+                                    <a href="{{ url('admin/colour/' . $colourItem->id . '/show' ) }}">
                                         <i class="fa-solid fa-eye text-info mx-1" data-toggle="tooltip"
                                             data-placement="bottom" title="Show {{ $colourItem->title }}"></i>
                                     </a>
-                                    <a href="{{ url('admin/category/' . $colourItem->id . '/edit' ) }}">
+                                    <a href="{{ url('admin/colour/' . $colourItem->id . '/edit' ) }}">
                                         <i class="fa-solid fa-pen-to-square text-primary mx-1" data-toggle="tooltip"
                                             data-placement="bottom" title="Edit {{ $colourItem->title }}"></i>
                                     </a>
-                                    <a href="{{ url('admin/category/' . $colourItem->id . '/destroy') }}"
+                                    <a href="{{ url('admin/colour/' . $colourItem->id . '/destroy') }}"
                                         onclick="return confirm('Are you sure you want to delete this {{ $colourItem->title }} category')">
                                         <i class="fa-solid fa-trash text-danger mx-1" data-toggle="tooltip"
                                             data-placement="bottom" title="Delete">

@@ -18,5 +18,11 @@ class Brand extends Model
         'description',
         'image',
         'status',
+        'created_by'
     ];
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }

@@ -20,4 +20,14 @@ class Category extends Model
         'meta_keyword',
         'meta_description',
     ];
+
+    public function brand()
+    {
+        return $this->hasMany(Brand::class, 'category_id', 'id');
+    }
+
+    public function colour()
+    {
+        return $this->hasMany(Colour::class, 'category_id', 'id');
+    }
 }

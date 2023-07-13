@@ -22,10 +22,10 @@ class ColourRequestForm extends FormRequest
     public function rules(): array
     {
         return [
+            'category_id' => ['nullable'],
             'title' => ['required', 'string', 'max:25'],
             'slug' => ['required', 'string', 'max:25'],
             'description' => ['required', 'string', 'max:5000'],
-            'image' => ['required', 'mimes:png,jpg,jpeg'],
             'status' => ['required', 'nullable'],
         ];
     }

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->tinyInteger('status')->default('0')->comment('0=Visible, 1=Hide');
             $table->unsignedBigInteger('created_by')->default('0');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
