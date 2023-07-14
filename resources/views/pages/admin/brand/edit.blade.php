@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Create New Brand</h4>
+                    <h4 style="color: #e9ecef" class="text-capitalize">{{ $brand->title }} Brand Edit</h4>
                 </span>
             </div>
 
@@ -27,12 +27,8 @@
                             <label for="Category" class="form-label">Category
                                 <span class="text-danger">*</span>
                             </label>
-                            <select class="form-select" name="category_id">
-                                <option selected>{{ $colour->categories->title }}</option>
-                                @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" id="Title" class="form-control" value="{{ $brand->categories->title }}"
+                                name="category_id" readonly disabled>
                             @error('category_id') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -42,8 +38,7 @@
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="{{ $brand->title }}"
-                                name="title">
+                            <input type="text" id="Title" class="form-control" value="{{ $brand->title }}" name="title">
                             @error('title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -76,7 +71,7 @@
                             </label>
                             <input type="file" id="Image" class="form-control" name="image"
                                 accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
-                            <img src="{{ asset($brand->image) }}" alt="{{ $brand->image }}" width="75">
+                            <img src="{{ asset($brand->image) }}" alt="{{ $brand->image }}" width="75" class="mt-2">
                             @error('image') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -120,7 +115,8 @@
 
                     <hr class=" mb-3 mt-4">
 
-                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Brand</button>
+                    <button type="submit" class="btn btn-sm btn-info float-end">Edit {{ ucfirst($brand->title) }}
+                        Brand</button>
 
                 </form>
 
@@ -140,9 +136,9 @@
             <div class="card-body">
                 <div class="table-responsive">
                     @forelse ($allBrand as $brandItem)
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mb-3">
 
-                        <span class="d-flex align-items-center">{{ $brandItem->title }}</span>
+                        <span class="d-flex align-items-center text-capitalize">{{ $brandItem->title }}</span>
                         <span>
                             <img src="{{ asset($brandItem->image) }}" alt="{{$brandItem->title}}" height="50">
                         </span>

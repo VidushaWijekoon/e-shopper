@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Create New Brand</h4>
+                    <h4 style="color: #e9ecef" class="text-capitalize">{{ $brand->title }} Brand</h4>
                 </span>
             </div>
 
@@ -26,7 +26,7 @@
                         <label for="Category" class="form-label">Category
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" id="Title" class="form-control" value="{{ $colour->categories->title }}"
+                        <input type="text" id="Title" class="form-control" value="{{ $brand->categories->title }}"
                             readonly disabled>
                         @error('category_id') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                     </div>
@@ -125,9 +125,9 @@
             <div class="card-body">
                 <div class="table-responsive">
                     @forelse ($allBrand as $brandItem)
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mb-3">
 
-                        <span class="d-flex align-items-center">{{ $brandItem->title }}</span>
+                        <span class="d-flex align-items-center text-capitalize">{{ $brandItem->title }}</span>
                         <span>
                             <img src="{{ asset($brandItem->image) }}" alt="{{$brandItem->title}}" height="50">
                         </span>

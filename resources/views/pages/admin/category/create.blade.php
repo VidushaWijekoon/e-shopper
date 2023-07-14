@@ -1,5 +1,8 @@
 @extends('layouts.admin.app')
 @section('content')
+@if (session('message'))
+<div class="alert alert-success bg-danger p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
+@endif
 <div class="row">
 
     <div class="col-md-9">

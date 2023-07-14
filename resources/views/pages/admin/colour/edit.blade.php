@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Create New Brand</h4>
+                    <h4 style="color: #e9ecef">Edit : {{ $colour->title }} Colour</h4>
                 </span>
             </div>
 
@@ -27,12 +27,8 @@
                             <label for="Category" class="form-label">Category
                                 <span class="text-danger">*</span>
                             </label>
-                            <select class="form-select" name="category_id">
-                                <option selected>{{ $colour->categories->title }}</option>
-                                @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" id="Title" class="form-control" value="{{ $colour->categories->title }}"
+                                name="category_id" readonly disabled>
                             @error('category_id') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -42,7 +38,7 @@
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="{{ $colour->title }}"
+                            <input type="text" id="Title" class="form-control" value="{{ $colour->title }}"
                                 name="title">
                             @error('title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
@@ -109,7 +105,8 @@
 
                     <hr class=" mb-3 mt-4">
 
-                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Colour</button>
+                    <button type="submit" class="btn btn-sm btn-info float-end">Edit {{ ucfirst($colour->title) }}
+                        Colour</button>
 
                 </form>
 
@@ -128,10 +125,12 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    @forelse ($allColour as $colourItem)
-                    <div class="d-flex justify-content-between">
+                    @forelse ($colour as $colourItem)
+                    <div class="d-flex justify-content-between mb-3">
 
-                        <span class="d-flex align-items-center">{{ $colourItem->title }}</span>
+                        <span class="d-flex align-items-center text-capitalize"
+                            style="font-size: 16px; font-weight:bold">{{
+                            $colourItem->title }}</span>
 
                     </div>
                     @empty

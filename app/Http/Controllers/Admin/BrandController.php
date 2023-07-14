@@ -18,9 +18,9 @@ class BrandController extends Controller
 
     public function create()
     {
-        $brand = Brand::all();
+        $allBrand = Brand::all();
         $categories = Category::all();
-        return view('pages.admin.brand.create', ['brand' => $brand, 'categories' => $categories]);
+        return view('pages.admin.brand.create', ['allBrand' => $allBrand, 'categories' => $categories]);
     }
 
     public function store(BrandRequestForm $request)
@@ -29,9 +29,9 @@ class BrandController extends Controller
         $brand = new Brand;
 
         $brand->category_id = $validatedData['category_id'];
-        $brand->title = $validatedData['title'];
+        $brand->title = strtolower($validatedData['title']);
         $brand->slug = Str::slug($validatedData['slug']);
-        $brand->description = $validatedData['description'];
+        $brand->description = strtolower($validatedData['description']);
 
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/brand/';
@@ -69,10 +69,9 @@ class BrandController extends Controller
         $validatedData = $request->validated();
         $brand = Brand::findOrFail($brand);
 
-        $brand->category_id = $validatedData['category_id'];
-        $brand->title = $validatedData['title'];
+        $brand->title = strtolower($validatedData['title']);
         $brand->slug = Str::slug($validatedData['slug']);
-        $brand->description = $validatedData['description'];
+        $brand->description = strtolower($validatedData['description']);
 
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/brand/';

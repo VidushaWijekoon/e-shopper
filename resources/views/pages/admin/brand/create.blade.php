@@ -122,10 +122,10 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    @forelse ($brand as $brandItem)
-                    <div class="d-flex justify-content-between">
+                    @forelse ($allBrand as $brandItem)
+                    <div class="d-flex justify-content-between mb-3">
 
-                        <span class="d-flex align-items-center">{{ $brandItem->title }}</span>
+                        <span class="d-flex align-items-center text-capitalize">{{ $brandItem->title }}</span>
                         <span>
                             <img src="{{ asset($brandItem->image) }}" alt="{{$brandItem->title}}" height="50">
                         </span>

@@ -31,7 +31,7 @@
             </li>
 
             <li class="sidebar-item {{ 'admin/product' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
+                <a class="sidebar-link" href="{{ route('admin.product') }}">
                     <i class="align-middle" data-feather="layers"></i>
                     <span class="align-middle">Product</span>
                 </a>

@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Create New Colour</h4>
+                    <h4 style="color: #e9ecef">{{ $colour->title }} : Colour</h4>
                 </span>
             </div>
 
@@ -114,9 +114,13 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    @forelse ($allColour as $colourItem)
-                    <div class="d-flex justify-content-between">
-                        <span class="d-flex align-items-center">{{ $colourItem->title }}</span>
+                    @forelse ($colour as $colourItem)
+                    <div class="d-flex justify-content-between mb-3">
+
+                        <span class="d-flex align-items-center text-capitalize"
+                            style="font-size: 16px; font-weight:bold">{{
+                            $colourItem->title }}</span>
+
                     </div>
                     @empty
                     <span>No Category Has Been Created</span>

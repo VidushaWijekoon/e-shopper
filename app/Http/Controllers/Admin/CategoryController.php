@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\CategoryRequestForm;
 
 class CategoryController extends Controller
 {
+    public $categoryItems = NULL;
     public function index()
     {
         return view('pages.admin.category.index');
@@ -19,6 +20,7 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = Category::all();
+
         return view('pages.admin.category.create', compact('categories'));
     }
 
@@ -27,9 +29,9 @@ class CategoryController extends Controller
         $validatedData = $request->validated();
         $category = new Category;
 
-        $category->title = $validatedData['title'];
+        $category->title = strtolower($validatedData['title']);
         $category->slug = Str::slug($validatedData['slug']);
-        $category->description = $validatedData['description'];
+        $category->description = strtolower($validatedData['description']);
 
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/category/';
@@ -41,9 +43,10 @@ class CategoryController extends Controller
             $category->image = $uploadPath . $filename;
         }
 
-        $category->meta_title = $validatedData['meta_title'];
-        $category->meta_keyword = $validatedData['meta_keyword'];
-        $category->meta_description = $validatedData['meta_description'];
+        $category->meta_title = strtolower($validatedData['meta_title']);
+        $category->meta_keyword = strtolower($validatedData['meta_keyword']);
+        $category->meta_description = strtolower($validatedData['meta_description']);
+
 
         $category->save();
         return redirect(route('admin.category'))->with('message', 'Successfully Created New Categoty');
@@ -67,9 +70,9 @@ class CategoryController extends Controller
         $validatedData = $request->validated();
         $category = Category::findOrFail($category);
 
-        $category->title = $validatedData['title'];
+        $category->title = strtolower($validatedData['title']);
         $category->slug = Str::slug($validatedData['slug']);
-        $category->description = $validatedData['description'];
+        $category->description = strtolower($validatedData['description']);
 
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/category/';
@@ -86,9 +89,9 @@ class CategoryController extends Controller
             $category->image = $uploadPath . $filename;
         }
 
-        $category->meta_title = $validatedData['meta_title'];
-        $category->meta_keyword = $validatedData['meta_keyword'];
-        $category->meta_description = $validatedData['meta_description'];
+        $category->meta_title = strtolower($validatedData['meta_title']);
+        $category->meta_keyword = strtolower($validatedData['meta_keyword']);
+        $category->meta_description = strtolower($validatedData['meta_description']);
 
         $category->update();
         return redirect(route('admin.category'))->with('message', 'Successfully Update Category');

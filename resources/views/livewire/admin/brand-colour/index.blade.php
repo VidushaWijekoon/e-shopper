@@ -1,7 +1,8 @@
+@if (session('message'))
+<div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
+@endif
+
 <div class="row">
-    @if (session('message'))
-    <div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
-    @endif
 
     <!-- Brands -->
     <div class="col-md-6">

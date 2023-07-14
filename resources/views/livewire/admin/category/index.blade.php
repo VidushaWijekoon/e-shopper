@@ -1,8 +1,8 @@
+@if (session('message'))
+<div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
+@endif
 <div class="row">
     <div class="col-md-12">
-        @if (session('message'))
-        <div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
-        @endif
         <div class="card">
             <div class="card-header">
                 <span class="card-title mb-0 d-flex justify-content-between">

@@ -30,9 +30,9 @@ class ColourController extends Controller
         $colour = new Colour;
 
         $colour->category_id = $validatedData['category_id'];
-        $colour->title = $validatedData['title'];
+        $colour->title = strtolower($validatedData['title']);
         $colour->slug = Str::slug($validatedData['slug']);
-        $colour->description = $validatedData['description'];
+        $colour->description = strtolower($validatedData['description']);
 
         $colour->status = $validatedData['status'];
 
@@ -60,10 +60,9 @@ class ColourController extends Controller
         $validatedData = $request->validated();
         $colour = Colour::findOrFail($colour);
 
-        $colour->category_id = $validatedData['category_id'];
-        $colour->title = $validatedData['title'];
+        $colour->title = strtolower($validatedData['title']);
         $colour->slug = Str::slug($validatedData['slug']);
-        $colour->description = $validatedData['description'];
+        $colour->description = strtolower($validatedData['description']);
 
         if ($request->hasFile('image')) {
             $uploadPath = 'uploads/colour/';

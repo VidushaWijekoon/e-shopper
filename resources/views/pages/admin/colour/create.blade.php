@@ -42,7 +42,7 @@
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Brand Title" name="title">
+                            <input type="text" id="Title" class="form-control" placeholder="Colour Title" name="title">
                             @error('title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <label for="Slug" class="form-label">Slug
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Slug" class="form-control" placeholder="Brand Slug" name="slug">
+                            <input type="text" id="Slug" class="form-control" placeholder="Colour Slug" name="slug">
                             @error('slug') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <textarea type="text" id="Slug" class="form-control" rows="3"
-                                placeholder="Brand Description" name="description"></textarea>
+                                placeholder="Colour Description" name="description"></textarea>
                             @error('description') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 
                     <hr class=" mb-3 mt-4">
 
-                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Brand</button>
+                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Colour</button>
 
                 </form>
 
@@ -112,12 +112,10 @@
             <div class="card-body">
                 <div class="table-responsive">
                     @forelse ($colour as $colourItem)
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mb-3">
 
-                        <span class="d-flex align-items-center">{{ $colourItem->title }}</span>
-                        <span>
-                            <img src="{{ asset($colourItem->image) }}" alt="{{$colourItem->title}}" height="50">
-                        </span>
+                        <span class="d-flex align-items-center text-capitalize"
+                            style="font-size: 16px; font-weight:bold">{{ $colourItem->title }}</span>
 
                     </div>
                     @empty
