@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Brand;
+use App\Models\Colour;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
@@ -29,5 +32,10 @@ class Category extends Model
     public function colour()
     {
         return $this->hasMany(Colour::class, 'category_id', 'id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
     }
 }

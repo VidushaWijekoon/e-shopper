@@ -33,7 +33,6 @@
                                 </div><!-- End .header-menu -->
                             </div>
                         </li>
-                        <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li>
                     </ul>
                 </li>
             </ul>

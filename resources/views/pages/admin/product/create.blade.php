@@ -142,24 +142,24 @@
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
-                        <label for="">Select Color</label>
-                        <hr>
                         <div class="row">
                             @forelse ($colours as $colorItem)
                             <div class="col-md-6">
-                                <div class="p-2 border mb-3 d-inline-block">
-                                    <div class="">
-                                        <div class="mb-2">Color:</div>
+                                <div class="p-2 border mb-3">
+                                    <div class="d-flex">
+                                        <div class="mb-2 mt-2">Color:</div>
                                         <input type="checkbox" name="colors[{{ $colorItem->id }}]"
-                                            value="{{ $colorItem->id }}" />
-                                        {{ $colorItem->title }}
+                                            value="{{ $colorItem->id }}" class="mx-2" />
+                                        <span class="mt-2">{{ $colorItem->title }}</span>
 
                                     </div>
 
                                     <br>
-                                    <div class="">Quantity:</div>
-                                    <input type="number" name="colorquantity[{{ $colorItem->id }}]"
-                                        style="width: 70px; border: 1px soild black">
+                                    <div class="d-flex">
+                                        <div class="">Quantity:</div>
+                                        <input type="number" class="mx-2" name="colorquantity[{{ $colorItem->id }}]"
+                                            style="width: 70px; border: 1px soild black">
+                                    </div>
                                 </div>
 
                             </div>

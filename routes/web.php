@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/', [HomapageController::class, 'index'])->name('website.homepage');
 
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::controller(AdminHomepageController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('admin.dashboard');
     });

@@ -34,11 +34,12 @@ class ProductRequestForm extends FormRequest
             'product_original_price' => ['required', 'integer'],
             'product_selling_price' => ['required', 'integer'],
             'product_discount_percent' => ['required', 'integer'],
+            'product_quantity' => ['required', 'integer'],
             'trading' => ['required', 'nullable'],
             'status' => ['required', 'nullable'],
-            'product_meta_title' => ['required', 'integer'],
-            'product_meta_keyword' => ['required', 'integer'],
-            'product_meta_description' => ['required', 'integer'],
+            'product_meta_title' => ['required', 'string'],
+            'product_meta_keyword' => ['required', 'string'],
+            'product_meta_description' => ['required', 'string'],
 
             'image' => ['required'],
 
