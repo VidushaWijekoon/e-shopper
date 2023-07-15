@@ -7,6 +7,7 @@ use App\Models\Colour;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\ColourRequestForm;
 
@@ -35,6 +36,8 @@ class ColourController extends Controller
         $colour->description = strtolower($validatedData['description']);
 
         $colour->status = $validatedData['status'];
+        $colour->created_by = Auth::user()->id;
+
 
         $colour->save();
         return redirect(route('admin.colour'))->with('message', 'Colour Created Successfully');

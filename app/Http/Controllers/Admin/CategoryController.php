@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\CategoryRequestForm;
 
 
@@ -46,7 +47,7 @@ class CategoryController extends Controller
         $category->meta_title = strtolower($validatedData['meta_title']);
         $category->meta_keyword = strtolower($validatedData['meta_keyword']);
         $category->meta_description = strtolower($validatedData['meta_description']);
-
+        $category->created_by = Auth::user()->id;
 
         $category->save();
         return redirect(route('admin.category'))->with('message', 'Successfully Created New Categoty');

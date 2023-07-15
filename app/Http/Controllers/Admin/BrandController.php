@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\BrandRequestForm;
 
@@ -44,6 +45,7 @@ class BrandController extends Controller
         }
 
         $brand->status = $validatedData['status'];
+        $brand->created_by = Auth::user()->id;
 
         $brand->save();
         return redirect(route('admin.brand'))->with('message', 'Brand Created Successfully');

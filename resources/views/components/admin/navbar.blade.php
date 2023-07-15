@@ -83,7 +83,7 @@
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
                     <img src="{{ asset('admin/img/avatars/avatar.jpg') }}" class="avatar img-fluid rounded me-1"
                         alt="Charles Hall" />
-                    <span class="text-dark">Charles Hall</span>
+                    <span class="text-dark text-capitalize">{{ Auth::user()->username }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i>
@@ -96,7 +96,16 @@
                     <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i>
                         Help Center</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Log out</a>
+
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa fa-sign-out mx-1"></i>
+                        {{ __('Sign Out') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
                 </div>
             </li>
         </ul>

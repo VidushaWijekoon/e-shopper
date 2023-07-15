@@ -32,7 +32,7 @@
                                 <td>{{ $categoryItem->title }}</td>
                                 <td>{{ $categoryItem->slug }}</td>
                                 <td>{{ $categoryItem->created_at }}</td>
-                                <td>Admin</td>
+                                <td>{{ $categoryItem->username }}</td>
                                 <td>
                                     @if ($categoryItem->status == '0')
                                     <span class="badge text-bg-success rounded-pill p-1 px-2 text-white">Approved &

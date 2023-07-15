@@ -114,7 +114,7 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    @forelse ($colour as $colourItem)
+                    @forelse ($allColour as $colourItem)
                     <div class="d-flex justify-content-between mb-3">
 
                         <span class="d-flex align-items-center text-capitalize"

@@ -87,7 +87,7 @@
                             <label for="Title" class="form-label">Product Infomation
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea name="" id="" rows="3" name="product_information" class="form-control"></textarea>
+                            <textarea id="" rows="3" name="product_information" class="form-control"></textarea>
                             @error('product_information') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -97,8 +97,7 @@
                             <label for="Title" class="form-label">Additional Information
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea name="" id="" rows="3" name="additional_information"
-                                class="form-control"></textarea>
+                            <textarea id="" rows="3" name="additional_information" class="form-control"></textarea>
                             @error('additional_information') <span class="text-danger mt-1">{{ $message }}</span>
                             @enderror
                         </div>
@@ -109,7 +108,7 @@
                             <label for="Title" class="form-label">Short Description
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea name="" id="" rows="3" name="short_description" class="form-control"></textarea>
+                            <textarea id="" rows="3" name="short_description" class="form-control"></textarea>
                             @error('short_description') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -128,7 +127,7 @@
                             <label for="Image" class="form-label">Image
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="file" id="Image" class="form-control" name="image"
+                            <input type="file" id="Image" class="form-control" multiple name="image[]"
                                 accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
                             @error('image') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
@@ -199,8 +198,8 @@
                             <label for="Title" class="form-label">Product Selling price
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Product Selling price"
-                                name="product_selling_price">
+                            <input type="number" id="Title" class="form-control" placeholder="Product Selling price"
+                                name="product_selling_price" min="0">
                             @error('product_selling_price') <span class="text-danger mt-1">{{ $message }}</span>
                             @enderror
                         </div>
@@ -211,8 +210,8 @@
                             <label for="Title" class="form-label">Product Discount Percent
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Product Discount Percent"
-                                name="product_discount_percent">
+                            <input type="number" id="Title" class="form-control" placeholder="Product Discount Percent"
+                                name="product_discount_percent" min="0">
                             @error('product_discount_percent') <span class="text-danger mt-1">{{ $message }}</span>
                             @enderror
                         </div>
@@ -223,8 +222,8 @@
                             <label for="Title" class="form-label">Product Quantity
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Product Quantity"
-                                name="product_quantity">
+                            <input type="number" id="Title" class="form-control" placeholder="Product Quantity"
+                                name="product_quantity" min="0">
                             @error('product_quantity') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -236,11 +235,11 @@
                             </label>
                             <div class="">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="trading" id="visible" value="0">
+                                    <input class="form-check-input" type="radio" name="tranding" id="visible" value="0">
                                     <label class="form-check-label" for="visible">Traning</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="trading" id="inlineRadio2"
+                                    <input class="form-check-input" type="radio" name="tranding" id="inlineRadio2"
                                         value="0">
                                     <label class="form-check-label" for="inlineRadio2">Not Tranding</label>
                                 </div>
@@ -305,8 +304,7 @@
                             <label for="Title" class="form-label">Product Meta Description
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea name="" id="" rows="3" class="form-control"
-                                name="product_meta_description"></textarea>
+                            <textarea id="" rows="3" class="form-control" name="product_meta_description"></textarea>
                             @error('product_meta_description') <span class="text-danger mt-1">{{ $message }}</span>
                             @enderror
                         </div>

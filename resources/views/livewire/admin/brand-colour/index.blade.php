@@ -101,7 +101,9 @@
                             <tr>
                                 <td>{{ $colourItem->id }}</td>
                                 <td>{{ $colourItem->title }}</td>
-                                <td>{{ $colourItem->created_at }}</td>
+                                <td>
+                                    {{ $colourItem->created_at }}
+                                </td>
                                 <td>{{ $colourItem->created_by }}</td>
                                 <td>
                                     @if ($colourItem->status == '0')

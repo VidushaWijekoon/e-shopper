@@ -30,7 +30,8 @@ return new class extends Migration
             $table->string('product_meta_title');
             $table->string('product_meta_keyword');
             $table->longText('product_meta_description');
-            $table->string('created_by')->nullable();
+            $table->unsignedBigInteger('created_by')->default('0')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->timestamps();

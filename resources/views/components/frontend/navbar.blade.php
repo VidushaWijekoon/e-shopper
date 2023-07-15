@@ -33,6 +33,9 @@
                     <li class="megamenu-container active">
                         <a href="#" class="#">Home</a>
                     </li>
+                    <li class="megamenu-container">
+                        <a href="#" class="#">About</a>
+                    </li>
                 </ul>
                 <!-- End .menu -->
             </nav>

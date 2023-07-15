@@ -29,9 +29,6 @@
 
         <div class="header-right">
 
-
-
-
             <div class="wishlist">
                 <a href="#" title="Wishlist">
                     <div class="icon">
