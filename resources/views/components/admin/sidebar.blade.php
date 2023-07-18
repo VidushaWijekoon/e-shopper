@@ -40,7 +40,7 @@
             <li class="sidebar-header">Pages</li>
 
             <li class="sidebar-item {{ 'admin/sliders' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
+                <a class="sidebar-link" href="{{ route('admin.slider') }}">
                     <i class="align-middle" data-feather="grid"></i>
                     <span class="align-middle">Sliders</span>
                 </a>

@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title', 'JBMM Dashboard')
 @section('content')
 
 <div class="container-fluid p-0">

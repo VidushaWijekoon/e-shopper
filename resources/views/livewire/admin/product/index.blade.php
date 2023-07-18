@@ -1,3 +1,4 @@
+@section('title', 'Products')
 @if (session('message'))
 <div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
 @endif
@@ -19,7 +20,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Title</th>
-                                <th>Product Image</th>
+                                <th>Category</th>
+                                <th>Brand</th>
                                 <th>Original Price</th>
                                 <th>Selling Price</th>
                                 <th>QTY</th>
@@ -34,7 +36,8 @@
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $productItem->title }}</td>
-                                <td></td>
+                                <td class="text-capitalize">{{ $productItem->category->title }}</td>
+                                <td class="text-capitalize">{{ $productItem->brand->title }}</td>
                                 <td>{{ $productItem->product_original_price }}</td>
                                 <td>{{ $productItem->product_selling_price }}</td>
                                 <td>{{ $productItem->product_quantity }}</td>
@@ -62,7 +65,7 @@
                                             data-placement="bottom" title="Edit {{ $productItem->title }}"></i>
                                     </a>
                                     <a href="{{ url('admin/product/' . $productItem->id . '/destroy') }}"
-                                        onclick="return confirm('Are you sure you want to delete this {{ $productItem->title }} category')">
+                                        onclick="return confirm('Are you sure you want to delete this {{ $productItem->title }} product')">
                                         <i class="fa-solid fa-trash text-danger mx-1" data-toggle="tooltip"
                                             data-placement="bottom" title="Delete">
                                         </i>

@@ -18,7 +18,8 @@ class Brand extends Model
         'description',
         'image',
         'status',
-        'created_by'
+        'created_by',
+        'approved_by'
     ];
 
     public function categories()

@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('image');
             $table->tinyInteger('status')->default('0')->comment('0=Visible, 1=Hide');
             $table->unsignedBigInteger('created_by')->default('0')->nullable();
+            $table->unsignedBigInteger('approved_by')->default('0')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('approved_by')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

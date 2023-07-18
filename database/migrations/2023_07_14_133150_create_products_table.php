@@ -21,8 +21,8 @@ return new class extends Migration
             $table->longText('product_information');
             $table->longText('additional_information');
             $table->mediumText('short_description');
-            $table->string('product_original_price');
-            $table->string('product_selling_price');
+            $table->bigInteger('product_original_price');
+            $table->bigInteger('product_selling_price');
             $table->tinyInteger('product_discount_percent');
             $table->tinyInteger('product_quantity');
             $table->tinyInteger('tranding')->default('0');
@@ -31,7 +31,9 @@ return new class extends Migration
             $table->string('product_meta_keyword');
             $table->longText('product_meta_description');
             $table->unsignedBigInteger('created_by')->default('0')->nullable();
+            $table->unsignedBigInteger('approved_by')->default('0')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('approved_by')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->timestamps();

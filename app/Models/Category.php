@@ -22,7 +22,8 @@ class Category extends Model
         'meta_title',
         'meta_keyword',
         'meta_description',
-        'created_by'
+        'created_by',
+        'approved_by'
     ];
 
     public function brand()
@@ -38,5 +39,15 @@ class Category extends Model
     public function products()
     {
         return $this->hasMany(Product::class, 'category_id', 'id');
+    }
+
+    public function created_by()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function approved_by()
+    {
+        return $this->belongsTo(User::class, 'username');
     }
 }

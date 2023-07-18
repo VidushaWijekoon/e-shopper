@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title', 'Show Product')
 @section('content')
 
 @if ($errors->any())
@@ -115,21 +116,21 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="row">
-                        @if ($product->productColours)
-                        @foreach ($product->productColours as $colour)
+                        @if ($product->productColour)
+                        @foreach ($product->productColour as $colour)
                         <div class="d-flex mb-2">
-                            <label for="Title" class="form-label mt-1">Color: </label>
-                            <input type="text" id="Title" class="form-control form-control-sm w-25 mx-2"
-                                value="{{ $product->productColours }}" readonly disabled>
+                            <label for="Title" class="form-label mt-1">Colour: </label>
+                            <input type="text" id="Title" class="form-control form-control-sm w-25 mx-4 text-capitalize"
+                                value="{{ $colour->colour->title }}" readonly disabled>
                         </div>
                         <div class="d-flex">
                             <label for="Title" class="form-label mt-1">Quantity: </label>
-                            <input type="text" id="Title" class="form-control form-control-sm w-25 mx-2"
-                                value="{{ $product->productColours->quantity }}" readonly disabled>
+                            <input type="text" id="Title" class="form-control form-control-sm w-25 mx-2 text-capitalize"
+                                value="{{ $colour->quantity }}" readonly disabled>
                         </div>
                         @endforeach
                         @else
-                        <span>No Images Found</span>
+                        <span>No Colour Found</span>
                         @endif
                     </div>
                 </div>
@@ -210,9 +211,7 @@
                         </div>
                         @endif
 
-
                     </div>
-                    @error('status') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="row mb-3">
@@ -247,9 +246,7 @@
                         </div>
                         @endif
 
-
                     </div>
-                    @error('status') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                 </div>
 
             </div>
@@ -263,16 +260,16 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for="Title" class="form-label">Product Meta Title</label>
-                        <input type="number" class="form-control" value="{{ $product->product_meta_title }}" readonly
-                            disabled>
+                        <input type="text" id="Title" class="form-control" value="{{ $product->product_meta_title }}"
+                            name="product_meta_keyword" readonly disabled>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for="Title" class="form-label">Product Meta keywords</label>
-                        <input type="number" class="form-control" value="{{ $product->product_meta_keyword }}" readonly
-                            disabled>
+                        <input type="text" id="Title" class="form-control" value="{{ $product->product_meta_keyword }}"
+                            name="product_meta_keyword" readonly disabled>
                     </div>
                 </div>
 

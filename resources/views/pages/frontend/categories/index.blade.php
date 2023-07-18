@@ -5,7 +5,7 @@
     <div class="row">
         @foreach ($categories as $categoryItem)
         <div class="col-6 col-sm-4 col-lg-2">
-            <a href="category.html" class="cat-block">
+            <a href="{{ url('/collections/'. $categoryItem->slug) }}" class="cat-block">
                 <figure>
                     <span>
                         <img src="{{ asset($categoryItem->image) }}" alt="Category image">

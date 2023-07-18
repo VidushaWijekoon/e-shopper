@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-6">
                     <div class="widget widget-about">
-                        <img src="{{ asset('frontend/img/company.jpg') }}" class="footer-logo" alt="Footer Logo"
+                        <img src="{{ asset('frontend/img/company.png') }}" class="footer-logo" alt="Footer Logo"
                             width="200" height="35">
                         <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna
                             eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,

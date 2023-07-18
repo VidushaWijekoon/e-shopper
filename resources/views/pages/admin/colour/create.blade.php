@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title', 'Create Colour')
 @section('content')
 <div class="row">
     <div class="col-md-9">

@@ -1,3 +1,4 @@
+@section('title', 'Categories')
 @if (session('message'))
 <div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
 @endif
@@ -32,7 +33,9 @@
                                 <td>{{ $categoryItem->title }}</td>
                                 <td>{{ $categoryItem->slug }}</td>
                                 <td>{{ $categoryItem->created_at }}</td>
-                                <td>{{ $categoryItem->username }}</td>
+                                <td>
+
+                                </td>
                                 <td>
                                     @if ($categoryItem->status == '0')
                                     <span class="badge text-bg-success rounded-pill p-1 px-2 text-white">Approved &

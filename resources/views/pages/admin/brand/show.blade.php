@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title', 'View Brand')
 @section('content')
 <div class="row">
     <div class="col-md-9">
@@ -18,8 +19,6 @@
                     @endforeach
                 </div>
                 @endif
-
-
 
                 <div class="row mb-3">
                     <div class="col-md-12">

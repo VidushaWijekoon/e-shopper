@@ -31,7 +31,8 @@ class Product extends Model
         'product_meta_title',
         'product_meta_keyword',
         'product_meta_description',
-        'created_by'
+        'created_by',
+        'approved_by'
     ];
 
     public function productImages()
@@ -39,7 +40,7 @@ class Product extends Model
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
 
-    public function productColours()
+    public function productColour()
     {
         return $this->hasMany(ProductColour::class, 'product_id', 'id');
     }
@@ -47,5 +48,10 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id', 'id');
     }
 }

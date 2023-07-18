@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title', 'Create Product')
 @section('content')
 
 @if ($errors->any())
@@ -11,7 +12,6 @@
 <form action="{{ route('admin.product') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
-
 
         <div class="col-md-6">
 
@@ -146,7 +146,7 @@
                             <div class="col-md-6">
                                 <div class="p-2 border mb-3">
                                     <div class="d-flex">
-                                        <div class="mb-2 mt-2">Color:</div>
+                                        <div class="mb-2 mt-2">Colour:</div>
                                         <input type="checkbox" name="colors[{{ $colorItem->id }}]"
                                             value="{{ $colorItem->id }}" class="mx-2" />
                                         <span class="mt-2">{{ $colorItem->title }}</span>
@@ -240,12 +240,12 @@
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="tranding" id="inlineRadio2"
-                                        value="0">
+                                        value="1">
                                     <label class="form-check-label" for="inlineRadio2">Not Tranding</label>
                                 </div>
                             </div>
                         </div>
-                        @error('status') <span class="text-danger mt-1">{{ $message }}</span> @enderror
+                        @error('tranding') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="row mb-3">
@@ -260,7 +260,7 @@
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
-                                        value="0">
+                                        value="1">
                                     <label class="form-check-label" for="inlineRadio2">Inactive</label>
                                 </div>
                             </div>

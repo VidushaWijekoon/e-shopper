@@ -1,4 +1,5 @@
 @extends('layouts.admin.app')
+@section('title', 'Create Category')
 @section('content')
 @if (session('message'))
 <div class="alert alert-success bg-danger p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>

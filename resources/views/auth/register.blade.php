@@ -8,7 +8,7 @@
 
                 <div class="card-body">
                     <div class="card-title d-flex justify-content-center">
-                        <img src="{{ asset('frontend/img/company.jpg') }}" alt="Company Logo">
+                        <img src="{{ asset('frontend/img/company.png') }}" alt="Company Logo">
                     </div>
                     <hr>
                     <form method="POST" action="{{ route('register') }}">

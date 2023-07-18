@@ -18,7 +18,8 @@ class Colour extends Model
         'slug',
         'description',
         'status',
-        'created_by'
+        'created_by',
+        'approved_by'
     ];
 
     public function categories()
