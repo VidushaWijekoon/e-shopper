@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->string('slug');
             $table->tinyText('description');
-            $table->tinyInteger('status')->default('0')->comment('0=Visible, 1=Hide');
+            $table->tinyInteger('active_status')->default('0')->nullable()->comment('0=Inactive, 1=Active');
+            $table->tinyInteger('approve_status')->default('0')->nullable()->comment('0=Pending, 1=Approve');
             $table->unsignedBigInteger('created_by')->default('0')->nullable();
             $table->unsignedBigInteger('approved_by')->default('0')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

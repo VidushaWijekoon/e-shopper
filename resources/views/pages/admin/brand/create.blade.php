@@ -80,28 +80,6 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col-md-6 col-sm-12">
-                            <label for="Image" class="form-label">Status
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="status" id="visible" value="0">
-                                    <label class="form-check-label" for="visible">Visible</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
-                                        value="0">
-                                    <label class="form-check-label" for="inlineRadio2">Hide</label>
-                                </div>
-                            </div>
-                        </div>
-                        @error('status') <span class="text-danger mt-1">{{ $message }}</span> @enderror
-                    </div>
-
-
-
                     <hr class=" mb-3 mt-4">
 
                     <button type="submit" class="btn btn-sm btn-info float-end">Create New Brand</button>

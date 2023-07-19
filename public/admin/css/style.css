@@ -14,3 +14,7 @@ body {
     font-weight: 600 !important;
     font-size: 25px !important;
 }
+
+a {
+    text-decoration: none !important;
+}

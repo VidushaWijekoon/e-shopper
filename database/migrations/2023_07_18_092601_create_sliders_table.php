@@ -18,7 +18,8 @@ return new class extends Migration
             $table->tinyText('short_description');
             $table->integer('price');
             $table->string('image');
-            $table->tinyInteger('status');
+            $table->tinyInteger('active_status')->default('0')->nullable()->comment('0=Inactive, 1=Active');
+            $table->tinyInteger('approve_status')->default('0')->nullable()->comment('0=Pending, 1=Approve');
             $table->unsignedBigInteger('created_by')->default('0')->nullable();
             $table->unsignedBigInteger('approved_by')->default('0')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');

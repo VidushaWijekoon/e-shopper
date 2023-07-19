@@ -123,8 +123,8 @@
                     @forelse ($categories as $categoryItem)
                     <div class="d-flex justify-content-between">
 
-                        <span class="d-flex align-items-center">{{ $categoryItem->title }}</span>
-                        <span>
+                        <span class="d-flex align-items-center text-capitalize">{{ $categoryItem->title }}</span>
+                        <span class="mt-3">
                             <img src="{{ asset($categoryItem->image) }}" alt="{{$categoryItem->title}}" height="50">
                         </span>
 

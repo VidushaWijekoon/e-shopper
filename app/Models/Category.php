@@ -23,7 +23,6 @@ class Category extends Model
         'meta_keyword',
         'meta_description',
         'created_by',
-        'approved_by'
     ];
 
     public function brand()

@@ -47,7 +47,10 @@ class CategoryController extends Controller
         $category->meta_title = strtolower($validatedData['meta_title']);
         $category->meta_keyword = strtolower($validatedData['meta_keyword']);
         $category->meta_description = strtolower($validatedData['meta_description']);
+        $category->active_status = '0';
+        $category->approve_status = '0';
         $category->created_by = Auth::user()->id;
+        $category->approved_by = Auth::user()->id;
 
         $category->save();
         return redirect(route('admin.category'))->with('message', 'Successfully Created New Categoty');
@@ -110,5 +113,23 @@ class CategoryController extends Controller
         $category->delete();
         session()->flash('message', 'Category has been removed');
         return redirect()->back()->with('message', 'Category has been removed');
+    }
+
+    public function activate($category)
+    {
+        $category = Category::findOrFail($category);
+        $category->active_status = '1';
+
+        $category->update();
+        return redirect()->back()->with('message', 'Successfully Activated');
+    }
+
+    public function deactivate($category)
+    {
+        $category = Category::findOrFail($category);
+        $category->active_status = '0';
+
+        $category->update();
+        return redirect()->back()->with('message', 'Successfully Deactivated');
     }
 }

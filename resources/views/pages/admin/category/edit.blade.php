@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Edit Category ID {{ $categories->id }}</h4>
+                    <h4 class="text-capitalize" style="color: #e9ecef">Edit Category {{ $categories->title }}</h4>
                 </span>
             </div>
 
@@ -125,7 +125,7 @@
                     @forelse ($allCateogry as $categoryItem)
                     <div class="d-flex justify-content-between">
 
-                        <span class="d-flex align-items-center">{{ $categoryItem->title }}</span>
+                        <span class="d-flex align-items-center text-capitalize">{{ $categoryItem->title }}</span>
                         <span>
                             <img src="{{ asset($categoryItem->image) }}" alt="{{$categoryItem->title}}" height="50">
                         </span>

@@ -44,8 +44,8 @@ class BrandController extends Controller
             $brand->image = $uploadPath . $filename;
         }
 
-        $brand->status = $validatedData['status'];
         $brand->created_by = Auth::user()->id;
+        $brand->approved_by = Auth::user()->id;
 
         $brand->save();
         return redirect(route('admin.brand'))->with('message', 'Brand Created Successfully');
@@ -89,8 +89,6 @@ class BrandController extends Controller
             $file->move($uploadPath, $filename);
             $brand->image = $uploadPath . $filename;
         }
-
-        $brand->status = $validatedData['status'];
 
         $brand->update();
         return redirect(route('admin.brand'))->with('message', 'Brand Updated Successfully');

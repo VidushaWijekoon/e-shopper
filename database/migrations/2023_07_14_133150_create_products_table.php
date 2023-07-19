@@ -26,7 +26,8 @@ return new class extends Migration
             $table->tinyInteger('product_discount_percent');
             $table->tinyInteger('product_quantity');
             $table->tinyInteger('tranding')->default('0');
-            $table->tinyInteger('status')->default('0');
+            $table->tinyInteger('active_status')->default('0')->nullable()->comment('0=Inactive, 1=Active');
+            $table->tinyInteger('approve_status')->default('0')->nullable()->comment('0=Pending, 1=Approve');
             $table->string('product_meta_title');
             $table->string('product_meta_keyword');
             $table->longText('product_meta_description');

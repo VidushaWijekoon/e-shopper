@@ -2,6 +2,11 @@
 @section('title', 'JBMM Dashboard')
 @section('content')
 
+@section('title', 'Categories')
+@if (session('message'))
+<div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
+@endif
+
 <div class="container-fluid p-0">
 
     <div class="row">

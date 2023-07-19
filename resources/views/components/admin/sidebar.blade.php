@@ -63,6 +63,13 @@
             <li class="sidebar-header">Finance & Reports</li>
 
             <li class="sidebar-item {{ 'admin/orders' == request()->path() ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('admin.approval-stages') }}">
+                    <i class="align-middle" data-feather="lock"></i>
+                    <span class="align-middle">Approve</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item {{ 'admin/orders' == request()->path() ? 'active' : '' }}">
                 <a class="sidebar-link" href="#">
                     <i class="align-middle" data-feather="book"></i>
                     <span class="align-middle">Orders</span>
@@ -94,7 +101,7 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="{{ route('website.homepage') }}">
+                <a class="sidebar-link" href="{{ route('frontend.index') }}">
                     <i class="align-middle" data-feather="home"></i>
                     <span class="align-middle">E-Commerce Page</span>
                 </a>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomepageController;
+use App\Http\Controllers\Admin\ApproveController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColourController;
@@ -44,6 +45,8 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/category/{category}/edit', 'edit')->name('admin.category.edit');
         Route::put('/category/{category}/', 'update')->name('admin.category.update');
         Route::get('/category/{category}/destroy', 'destroy')->name('admin.category.destroy');
+        Route::get('/category/{category}/activate', 'activate')->name('admin.category.activate');
+        Route::get('/category/{category}/deactivate', 'deactivate')->name('admin.category.deactivate');
     });
 
     Route::controller(BrandController::class)->group(function () {
@@ -87,5 +90,11 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/slider/{slider}/edit', 'edit')->name('admin.slider.edit');
         Route::put('/slider/{slider}/', 'update')->name('admin.slider.update');
         Route::get('/slider/{slider}/destroy', 'destroy')->name('admin.slider.destroy');
+    });
+
+    Route::controller(ApproveController::class)->group(function () {
+        Route::get('/approval-stages', 'index')->name('admin.approval-stages');
+
+        Route::get('/approval/{category}/category_edit', 'category_edit')->name('category_edit');
     });
 });
