@@ -160,7 +160,7 @@
 
             <div class="card">
                 <div class="card-header text-white" style="background: #222e3c">
-                    Product Colours
+                    Product Colors
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">

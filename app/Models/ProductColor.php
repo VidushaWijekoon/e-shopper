@@ -2,25 +2,25 @@
 
 namespace App\Models;
 
-use App\Models\Colour;
+use App\Models\Color;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ProductColour extends Model
+class ProductColor extends Model
 {
     use HasFactory;
 
-    protected $table = 'product_colours';
+    protected $table = 'product_colors';
 
     protected $fillable = [
         'product_id',
-        'colour_id',
+        'color_id',
         'quantity',
         'created_by'
     ];
 
-    public function colour()
+    public function color()
     {
-        return $this->belongsTo(Colour::class, 'colour_id', 'id');
+        return $this->belongsTo(Color::class, 'color_id', 'id');
     }
 }

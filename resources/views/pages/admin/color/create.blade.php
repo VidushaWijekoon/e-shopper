@@ -1,12 +1,12 @@
 @extends('layouts.admin.app')
-@section('title', 'Create Brand')
+@section('title', 'Create Color')
 @section('content')
 <div class="row">
     <div class="col-md-9">
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Create New Brand</h4>
+                    <h4 style="color: #e9ecef">Create New Colour</h4>
                 </span>
             </div>
 
@@ -20,7 +20,7 @@
                 </div>
                 @endif
 
-                <form action="{{ route('admin.brand.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.color.store') }}" method="POST">
                     @csrf
 
                     <div class="row mb-3">
@@ -43,7 +43,7 @@
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" placeholder="Brand Title" name="title">
+                            <input type="text" id="Title" class="form-control" placeholder="Colour Title" name="title">
                             @error('title') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                             <label for="Slug" class="form-label">Slug
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Slug" class="form-control" placeholder="Brand Slug" name="slug">
+                            <input type="text" id="Slug" class="form-control" placeholder="Colour Slug" name="slug">
                             @error('slug') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -64,25 +64,36 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <textarea type="text" id="Slug" class="form-control" rows="3"
-                                placeholder="Brand Description" name="description"></textarea>
+                                placeholder="Colour Description" name="description"></textarea>
                             @error('description') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6 col-sm-12">
-                            <label for="Image" class="form-label">Image
+                            <label for="Image" class="form-label">Status
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="file" id="Image" class="form-control" name="image"
-                                accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
-                            @error('image') <span class="text-danger mt-1">{{ $message }}</span> @enderror
+                            <div class="">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="visible" value="0">
+                                    <label class="form-check-label" for="visible">Visible</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
+                                        value="0">
+                                    <label class="form-check-label" for="inlineRadio2">Hide</label>
+                                </div>
+                            </div>
                         </div>
+                        @error('status') <span class="text-danger mt-1">{{ $message }}</span> @enderror
                     </div>
+
+
 
                     <hr class=" mb-3 mt-4">
 
-                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Brand</button>
+                    <button type="submit" class="btn btn-sm btn-info float-end">Create New Colour</button>
 
                 </form>
 
@@ -95,19 +106,17 @@
         <div class="card">
             <div class="card-header" style="background: #222e3c">
                 <span class="card-title mb-0 d-flex justify-content-between">
-                    <h4 style="color: #e9ecef">Existing Brand</h4>
+                    <h4 style="color: #e9ecef">Existing Colour</h4>
                 </span>
             </div>
 
             <div class="card-body">
                 <div class="table-responsive">
-                    @forelse ($allBrand as $brandItem)
+                    @forelse ($color as $colourItem)
                     <div class="d-flex justify-content-between mb-3">
 
-                        <span class="d-flex align-items-center text-capitalize">{{ $brandItem->title }}</span>
-                        <span>
-                            <img src="{{ asset($brandItem->image) }}" alt="{{$brandItem->title}}" height="50">
-                        </span>
+                        <span class="d-flex align-items-center text-capitalize"
+                            style="font-size: 16px; font-weight:bold">{{ $colourItem->title }}</span>
 
                     </div>
                     @empty

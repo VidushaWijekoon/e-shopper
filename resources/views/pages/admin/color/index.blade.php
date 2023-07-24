@@ -1,4 +1,4 @@
 @extends('layouts.admin.app')
 @section('content')
-<livewire:admin.brand-colour.index />
+<livewire:admin.color.index />
 @endsection

@@ -2,9 +2,8 @@
 
 use App\Http\Controllers\Admin\AdminHomepageController;
 use App\Http\Controllers\Admin\ApproveController;
-use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ColourController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -49,24 +48,16 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/category/{category}/deactivate', 'deactivate')->name('admin.category.deactivate');
     });
 
-    Route::controller(BrandController::class)->group(function () {
-        Route::get('/brand-color', 'index')->name('admin.brand');
-        Route::get('/brand/create', 'create')->name('admin.brand.create');
-        Route::post('/brand', 'store')->name('admin.brand.store');
-        Route::get('/brand/{brand}/show', 'show')->name('admin.brand.show');
-        Route::get('/brand/{brand}/edit', 'edit')->name('admin.brand.edit');
-        Route::put('/brand/{brand}/', 'update')->name('admin.brand.update');
-        Route::get('/brand/{brand}/destroy', 'destroy')->name('admin.brand.destroy');
-    });
-
-    Route::controller(ColourController::class)->group(function () {
-        Route::get('/brand-colour', 'index')->name('admin.colour');
-        Route::get('/colour/create', 'create')->name('admin.colour.create');
-        Route::post('/colour', 'store')->name('admin.colour.store');
-        Route::get('/colour/{colour}/show', 'show')->name('admin.colour.show');
-        Route::get('/colour/{colour}/edit', 'edit')->name('admin.colour.edit');
-        Route::put('/colour/{colour}/', 'update')->name('admin.colour.update');
-        Route::get('/colour/{colour}/destroy', 'destroy')->name('admin.colour.destroy');
+    Route::controller(ColorController::class)->group(function () {
+        Route::get('/color', 'index')->name('admin.color');
+        Route::get('/color/create', 'create')->name('admin.color.create');
+        Route::post('/color', 'store')->name('admin.color.store');
+        Route::get('/color/{color}/show', 'show')->name('admin.color.show');
+        Route::get('/color/{color}/edit', 'edit')->name('admin.color.edit');
+        Route::put('/color/{color}/', 'update')->name('admin.color.update');
+        Route::get('/color/{color}/destroy', 'destroy')->name('admin.color.destroy');
+        Route::get('/color/{color}/activate', 'activate')->name('admin.color.activate');
+        Route::get('/color/{color}/deactivate', 'deactivate')->name('admin.color.deactivate');
     });
 
     Route::controller(ProductController::class)->group(function () {

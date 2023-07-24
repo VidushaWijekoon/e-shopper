@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\ProductRequestForm;
+use App\Models\Color;
 
 class ProductController extends Controller
 {
@@ -23,9 +24,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $brand = Brand::all();
-        $colours = Colour::all();
-        return view('pages.admin.product.create', ['categories' => $categories, 'brand' => $brand, 'colours' => $colours]);
+        $colors = Color::all();
+        return view('pages.admin.product.create', ['categories' => $categories,  'colors' => $colors]);
     }
 
     public function store(ProductRequestForm $request)
@@ -91,18 +91,16 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($product);
         $categories = Category::all();
-        $brand = Brand::all();
-        $colours = Colour::all();
-        return view('pages.admin.product.show', ['product' => $product, 'categories' => $categories, 'brand' => $brand, 'colours' => $colours]);
+        $colors = Color::all();
+        return view('pages.admin.product.show', ['product' => $product, 'categories' => $categories,   'Colors' => $colors]);
     }
 
     public function edit($product)
     {
         $product = Product::findOrFail($product);
         $categories = Category::all();
-        $brand = Brand::all();
-        $colours = Colour::all();
-        return view('pages.admin.product.edit', ['product' => $product, 'categories' => $categories, 'brand' => $brand, 'colours' => $colours]);
+        $colors = Color::all();
+        return view('pages.admin.product.edit', ['product' => $product, 'categories' => $categories, 'colors' => $colors]);
     }
 
     public function update(ProductRequestForm $request, $product)

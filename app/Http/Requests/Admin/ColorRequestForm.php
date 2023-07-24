@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ColourRequestForm extends FormRequest
+class ColorRequestForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,6 @@ class ColourRequestForm extends FormRequest
             'title' => ['required', 'string', 'max:25'],
             'slug' => ['required', 'string', 'max:25'],
             'description' => ['required', 'string', 'max:5000'],
-            'status' => ['required', 'nullable'],
         ];
     }
 }

@@ -6,11 +6,11 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Colour extends Model
+class Color extends Model
 {
     use HasFactory;
 
-    protected $table = 'colours';
+    protected $table = 'colors';
 
     protected $fillable = [
         'category_id',

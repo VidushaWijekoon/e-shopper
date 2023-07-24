@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Brand;
-use App\Models\Colour;
+use App\Models\User;
+use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,14 +25,9 @@ class Category extends Model
         'created_by',
     ];
 
-    public function brand()
+    public function color()
     {
-        return $this->hasMany(Brand::class, 'category_id', 'id');
-    }
-
-    public function colour()
-    {
-        return $this->hasMany(Colour::class, 'category_id', 'id');
+        return $this->hasMany(Color::class, 'category_id', 'id');
     }
 
     public function products()

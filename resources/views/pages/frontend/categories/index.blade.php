@@ -1,4 +1,4 @@
-<h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
+<h2 class="title text-center mb-4">Explore Popular Categories</h2>
 
 <div class="cat-blocks-container">
 
@@ -12,7 +12,7 @@
                     </span>
                 </figure>
 
-                <h3 class="cat-block-title mt-2">{{ $categoryItem->title }}</h3><!-- End .cat-block-title -->
+                <h3 class="cat-block-title mt-2">{{ $categoryItem->title }}</h3>
             </a>
         </div>
         @endforeach

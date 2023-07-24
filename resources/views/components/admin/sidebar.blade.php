@@ -23,10 +23,10 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ 'admin/brand-color' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('admin.brand') }}">
+            <li class="sidebar-item {{ 'admin/color' == request()->path() ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('admin.color') }}">
                     <i class="align-middle" data-feather="copy"></i>
-                    <span class="align-middle">Brand & Colour</span>
+                    <span class="align-middle">Color</span>
                 </a>
             </li>
 

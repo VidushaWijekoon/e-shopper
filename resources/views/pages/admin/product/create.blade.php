@@ -137,12 +137,12 @@
 
             <div class="card">
                 <div class="card-header text-white" style="background: #222e3c">
-                    Product Colours
+                    Product Colors
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="row">
-                            @forelse ($colours as $colorItem)
+                            @forelse ($colors as $colorItem)
                             <div class="col-md-6">
                                 <div class="p-2 border mb-3">
                                     <div class="d-flex">
