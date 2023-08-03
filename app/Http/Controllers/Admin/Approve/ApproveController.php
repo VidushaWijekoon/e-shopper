@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Approve;
 
 use App\Models\Color;
 use App\Models\Product;

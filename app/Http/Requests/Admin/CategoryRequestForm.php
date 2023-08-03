@@ -25,7 +25,6 @@ class CategoryRequestForm extends FormRequest
             'title' => ['required', 'string', 'max:25'],
             'slug' => ['required', 'string', 'max:25'],
             'description' => ['required', 'string', 'max:5000'],
-            'image' => ['required', 'mimes:png,jpg,jpeg'],
             'meta_title' => ['required', 'string', 'max:25'],
             'meta_keyword' => ['required', 'string', 'max:100'],
             'meta_description' => ['required', 'string', 'max:5000'],

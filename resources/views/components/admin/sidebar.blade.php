@@ -16,28 +16,59 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ 'admin/category' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('admin.category') }}">
-                    <i class="align-middle" data-feather="tag"></i>
-                    <span class="align-middle">Category</span>
+            <li class="sidebar-item">
+                <a href="#customer" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="briefcase"></i>
+                    <span class="align-middle">Customer Management</span>
                 </a>
+                <ul id="customer" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Customers</a>
+                    </li>
+                </ul>
             </li>
 
-            <li class="sidebar-item {{ 'admin/color' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('admin.color') }}">
+            <li class="sidebar-item">
+                <a href="#store" data-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="copy"></i>
-                    <span class="align-middle">Color</span>
+                    <span class="align-middle">Store Management</span>
+                </a>
+                <ul id="store" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('admin.category') }}">Categories</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Color</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Products</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="#payment" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="copy"></i>
+                    <span class="align-middle">Payment & Shipping</span>
+                </a>
+                <ul id="payment" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Alerts</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Buttons</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item {{ 'admin/sliders' == request()->path() ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('admin.slider') }}">
+                    <i class="align-middle" data-feather="airplay"></i>
+                    <span class="align-middle">Tracking</span>
                 </a>
             </li>
 
-            <li class="sidebar-item {{ 'admin/product' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('admin.product') }}">
-                    <i class="align-middle" data-feather="layers"></i>
-                    <span class="align-middle">Product</span>
-                </a>
-            </li>
-
-            <li class="sidebar-header">Pages</li>
+            <li class="sidebar-header">Discount & Promotions</li>
 
             <li class="sidebar-item {{ 'admin/sliders' == request()->path() ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('admin.slider') }}">
@@ -60,6 +91,13 @@
                 </a>
             </li>
 
+            <li class="sidebar-item {{ 'admin/offers' == request()->path() ? 'active' : '' }}">
+                <a class="sidebar-link" href="#">
+                    <i class="align-middle" data-feather="crop"></i>
+                    <span class="align-middle">Coupen</span>
+                </a>
+            </li>
+
             <li class="sidebar-header">Finance & Reports</li>
 
             <li class="sidebar-item {{ 'admin/orders' == request()->path() ? 'active' : '' }}">
@@ -69,25 +107,22 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ 'admin/orders' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
-                    <i class="align-middle" data-feather="book"></i>
-                    <span class="align-middle">Orders</span>
+            <li class="sidebar-item">
+                <a href="#order" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="layers"></i>
+                    <span class="align-middle">Order & Shipping</span>
                 </a>
-            </li>
-
-            <li class="sidebar-item {{ 'admin/sales' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
-                    <i class="align-middle" data-feather="book-open"></i>
-                    <span class="align-middle">Sales</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item {{ 'admin/reports' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
-                    <i class="align-middle" data-feather="briefcase"></i>
-                    <span class="align-middle">Reports</span>
-                </a>
+                <ul id="order" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Alerts</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Buttons</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="ui-cards.html">Cards</a>
+                    </li>
+                </ul>
             </li>
 
 
@@ -96,7 +131,7 @@
             <li class="sidebar-item {{ 'admin/users' == request()->path() ? 'active' : '' }}">
                 <a class="sidebar-link" href="#">
                     <i class="align-middle" data-feather="user"></i>
-                    <span class="align-middle">Profile</span>
+                    <span class="align-middle">{{ __('Administrator') }}</span>
                 </a>
             </li>
 

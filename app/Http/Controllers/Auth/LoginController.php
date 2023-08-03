@@ -30,7 +30,7 @@ class LoginController extends Controller
     protected function authenticated()
     {
         if (Auth::user()->role == '1' || Auth::user()->role == '2') {
-            return redirect(route('admin.dashboard'))->with('message', 'Welcome to Dashboard');
+            return redirect(route('admin.dashboard'))->with('message', 'Welcome to JBMM International Dashboard');
         } else {
             return redirect(route('website.homepage'))->with('status', 'Logged in Successfully');
         }

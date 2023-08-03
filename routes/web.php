@@ -1,12 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminHomepageController;
-use App\Http\Controllers\Admin\ApproveController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ColorController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Admin\Approve\ApproveController;
+use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Home\AdminHomepageController;
+use App\Http\Controllers\Frontend\Home\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,7 +42,7 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::put('/category/{category}/', 'update')->name('admin.category.update');
         Route::get('/category/{category}/destroy', 'destroy')->name('admin.category.destroy');
         Route::get('/category/{category}/activate', 'activate')->name('admin.category.activate');
-        Route::get('/category/{category}/deactivate', 'deactivate')->name('admin.category.deactivate');
+        Route::get('/category/{category}/dectivate', 'dectivate')->name('admin.category.dectivate');
     });
 
     Route::controller(ColorController::class)->group(function () {
@@ -56,8 +53,6 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/color/{color}/edit', 'edit')->name('admin.color.edit');
         Route::put('/color/{color}/', 'update')->name('admin.color.update');
         Route::get('/color/{color}/destroy', 'destroy')->name('admin.color.destroy');
-        Route::get('/color/{color}/activate', 'activate')->name('admin.color.activate');
-        Route::get('/color/{color}/deactivate', 'deactivate')->name('admin.color.deactivate');
     });
 
     Route::controller(ProductController::class)->group(function () {

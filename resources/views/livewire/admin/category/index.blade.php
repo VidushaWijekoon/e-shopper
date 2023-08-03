@@ -1,6 +1,6 @@
 @section('title', 'Categories')
 @if (session('message'))
-<div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message')}}</div>
+    <div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message') }}</div>
 @endif
 <div class="row">
     <div class="col-md-12">
@@ -29,65 +29,68 @@
                         </thead>
                         <tbody>
                             @forelse ($categories as $categoryItem)
-                            <tr>
-                                <td>{{ $categoryItem->id }}</td>
-                                <td>{{ $categoryItem->title }}</td>
-                                <td>{{ $categoryItem->slug }}</td>
-                                <td>{{ $categoryItem->created_at }}</td>
-                                <td>{{ $categoryItem->created_by }}</td>
-                                <td>
-                                    @if ($categoryItem->approve_status == '1' )
-                                    <span class="badge text-bg-success rounded-pill p-1 px-2 text-white">Approved</span>
-                                    @elseif ($categoryItem->approve_status == '0')
-                                    <span class="badge text-bg-warning rounded-pill p-1 px-2 text-white">Pending</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($categoryItem->active_status == '1' )
-                                    <span
-                                        class="badge text-bg-success rounded-pill p-1 px-2 text-white">Activated</span>
-                                    @elseif ($categoryItem->active_status == '0')
-                                    <span
-                                        class="badge text-bg-warning rounded-pill p-1 px-2 text-white">Deactivated</span>
-                                    @endif
-                                </td>
+                                <tr>
+                                    <td>{{ $categoryItem->id }}</td>
+                                    <td>{{ $categoryItem->title }}</td>
+                                    <td>{{ $categoryItem->slug }}</td>
+                                    <td>{{ $categoryItem->created_at }}</td>
+                                    <td>{{ $categoryItem->created_by }}</td>
 
-                                <td>
-                                    <a href="{{ url('admin/category/' . $categoryItem->id . '/show' ) }}">
-                                        <i class="fa-solid fa-eye text-info mx-2" data-toggle="tooltip"
-                                            data-placement="bottom" title="Show {{ $categoryItem->title }}"></i>
-                                    </a>
-                                    <a href="{{ url('admin/category/' . $categoryItem->id . '/edit' ) }}">
-                                        <i class="fa-solid fa-pen-to-square text-primary mx-2" data-toggle="tooltip"
-                                            data-placement="bottom" title="Edit {{ $categoryItem->title }}"></i>
-                                    </a>
+                                    <td>
+                                        @if ($categoryItem->approve_status == '1')
+                                            <span class="badge badge-success rounded-pill pb-1 px-2">Approved</span>
+                                        @elseif ($categoryItem->approve_status == '0')
+                                            <span class="badge badge-danger rounded-pill pb-1 px-2">Pending</span>
+                                        @endif
+                                    </td>
 
-                                    @if ($categoryItem->approve_status == '1')
-                                    <a href="{{ url('admin/category/' . $categoryItem->id . '/activate' ) }}"
-                                        onclick="return confirm('Are you sure you want to active this {{ $categoryItem->title }} category')">
-                                        <i class="fa-regular fa-circle-xmark text-warning mx-2"></i>
-                                    </a>
-                                    @elseif ($categoryItem->active_status == '0')
-                                    <a href="{{ url('admin/category/' . $categoryItem->id . '/deactivate' ) }}"
-                                        onclick="return confirm('Are you sure you want to deactivate this {{ $categoryItem->title }} category')">
-                                        <i class="fa-regular fa-circle-check text-success mx-2"></i>
-                                    </a>
+                                    <td>
+                                        @if ($categoryItem->active_status == '1')
+                                            <span class="badge badge-success rounded-pill pb-1 px-2">Activated</span>
+                                        @elseif ($categoryItem->active_status == '0')
+                                            <span
+                                                class="badge badge-secondary rounded-pill pb-1 px-2">Deactivated</span>
+                                        @endif
+                                    </td>
 
-                                    @endif
+                                    <td>
+                                        <a href="{{ url('admin/category/' . $categoryItem->id . '/show') }}">
+                                            <i class="fa-solid fa-eye text-info mx-2" data-toggle="tooltip"
+                                                data-placement="bottom" title="Show {{ $categoryItem->title }}"></i>
+                                        </a>
+                                        <a href="{{ url('admin/category/' . $categoryItem->id . '/edit') }}">
+                                            <i class="fa-solid fa-pen-to-square text-primary mx-2" data-toggle="tooltip"
+                                                data-placement="bottom" title="Edit {{ $categoryItem->title }}"></i>
+                                        </a>
 
-                                    @if (Auth::user()->role == '1')
-                                    <a href="{{ url('admin/category/' . $categoryItem->id . '/destroy') }}"
-                                        onclick="return confirm('Are you sure you want to delete this {{ $categoryItem->title }} category')">
-                                        <i class="fa-solid fa-trash text-danger mx-2" data-toggle="tooltip"
-                                            data-placement="bottom" title="Delete">
-                                        </i>
-                                    </a>
-                                    @endif
+                                        @if ($categoryItem->active_status == '1')
+                                            <a href="{{ url('admin/category/' . $categoryItem->id . '/dectivate') }}">
+                                                <i class="fa-solid fa-times-circle text-success mx-2"
+                                                    data-toggle="tooltip" data-placement="bottom"
+                                                    title="dectivate {{ $categoryItem->title }}"></i>
+                                            </a>
+                                        @else
+                                            <a href="{{ url('admin/category/' . $categoryItem->id . '/activate') }}">
+                                                <i class="fa-solid fa-check-circle text-secondary mx-2"
+                                                    data-toggle="tooltip" data-placement="bottom"
+                                                    title="Activate {{ $categoryItem->title }}"></i>
+                                            </a>
+                                        @endif
 
-                                </td>
-                            </tr>
+                                        @if (Auth::user()->role == '1')
+                                            <a href="{{ url('admin/category/' . $categoryItem->id . '/destroy') }}"
+                                                onclick="return confirm('Are you sure you want to delete this {{ $categoryItem->title }} category')">
+                                                <i class="fa-solid fa-trash text-danger mx-2" data-toggle="tooltip"
+                                                    data-placement="bottom" title="Delete">
+                                                </i>
+                                            </a>
+                                        @endif
+
+                                    </td>
+
+                                </tr>
                             @empty
-                            <span>No Data Found!</span>
+                                <span>No Data Found!</span>
                             @endforelse
                         </tbody>
                     </table>

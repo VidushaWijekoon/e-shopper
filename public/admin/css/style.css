@@ -1,20 +1,21 @@
 body {
     font-family: "Poppins", sans-serif;
+    font-size: 12px !important;
 }
 
-.content {
-    padding: 1.5rem !important;
+::-webkit-input-placeholder {
+    /* Edge */
+    font-size: 12px;
+    text-indent: 8px;
 }
 
-.card-title {
-    font-size: 20px !important;
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 12px;
+    text-indent: 8px;
 }
 
-.subtitle {
-    font-weight: 600 !important;
-    font-size: 25px !important;
-}
-
-a {
-    text-decoration: none !important;
+::placeholder {
+    font-size: 12px;
+    text-indent: 8px;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Category;
 
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -21,7 +21,6 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = Category::all();
-
         return view('pages.admin.category.create', compact('categories'));
     }
 
@@ -118,18 +117,22 @@ class CategoryController extends Controller
     public function activate($category)
     {
         $category = Category::findOrFail($category);
-        $category->active_status = '1';
 
-        $category->update();
-        return redirect()->back()->with('message', 'Successfully Activated');
+        if ($category->approve_status == '1') {
+            $category->active_status = '1';
+            $category->update();
+            return redirect()->back()->with('message', 'Category Activated');
+        } else {
+            return redirect()->back()->with('message', 'You Cannot Activated This Category Need Approved');
+        }
     }
 
-    public function deactivate($category)
+    public function dectivate($category)
     {
         $category = Category::findOrFail($category);
-        $category->active_status = '0';
 
+        $category->active_status = '0';
         $category->update();
-        return redirect()->back()->with('message', 'Successfully Deactivated');
+        return redirect()->back()->with('message', 'Successfully Deactivate Category');
     }
 }
