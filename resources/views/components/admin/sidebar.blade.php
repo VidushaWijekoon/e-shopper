@@ -41,7 +41,7 @@
                         <a class="sidebar-link" href="{{ route('admin.color-brand') }}">Color & Brand</a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">Products</a>
+                        <a class="sidebar-link" href="{{ route('admin.product') }}">Products</a>
                     </li>
                 </ul>
             </li>

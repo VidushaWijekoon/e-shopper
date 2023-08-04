@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('name');
             $table->string('slug');
+            $table->unsignedBigInteger('brand_id');
             $table->longText('product_information');
             $table->longText('additional_information');
             $table->mediumText('short_description');
@@ -35,6 +36,7 @@ return new class extends Migration
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('approved_by')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->timestamps();
         });
     }

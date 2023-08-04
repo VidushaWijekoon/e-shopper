@@ -25,7 +25,7 @@ class ApproveController extends Controller
         return view('pages.admin.approve.index', compact('categories', 'product', 'color', 'brand', 'rowCategoryCount',  'rowColorCount', 'rowBrandCount', 'rowProductCount'));
     }
 
-    public function category_edit($category)
+    public function category_approval($category)
     {
         $category = Category::findOrFail($category);
         $category->approve_status = '1';
@@ -34,7 +34,7 @@ class ApproveController extends Controller
         return redirect()->back()->with('message', 'Category Has Been Approved');
     }
 
-    public function colour_edit($color)
+    public function color_approval($color)
     {
         $color = Color::findOrFail($color);
         $color->approve_status = '1';
@@ -42,11 +42,19 @@ class ApproveController extends Controller
         return redirect()->back()->with('message', 'Color Has Been Approved');
     }
 
-    public function brand_edit($brand)
+    public function brand_approval($brand)
     {
         $brand = Brand::findOrFail($brand);
         $brand->approve_status = '1';
         $brand->update();
         return redirect()->back()->with('message', 'Brand Has Been Approved');
+    }
+
+    public function product_approval($product)
+    {
+        $product = Product::findOrFail($product);
+        $product->approve_status = '1';
+        $product->update();
+        return redirect()->back()->with('message', 'Product Has Been Approved');
     }
 }

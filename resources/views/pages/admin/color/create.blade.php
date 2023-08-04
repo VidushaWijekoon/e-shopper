@@ -73,7 +73,7 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="file" id="Image" class="form-control" name="image"
-                                    accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
+                                    accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg" required>
                                 @error('image')
                                     <span class="text-danger mt-1">{{ $message }}</span>
                                 @enderror
@@ -108,7 +108,7 @@
             <div class="card">
                 <div class="card-header" style="background: #222e3c">
                     <span class="card-title mb-0 d-flex justify-content-between">
-                        <h4 style="color: #e9ecef">Existing Category</h4>
+                        <h4 style="color: #e9ecef">Existing Color</h4>
                     </span>
                 </div>
 

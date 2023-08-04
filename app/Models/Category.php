@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use App\Models\Color;
+use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,23 +24,13 @@ class Category extends Model
         'created_by',
     ];
 
-    public function color()
-    {
-        return $this->hasMany(Color::class, 'category_id', 'id');
-    }
-
     public function products()
     {
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
-    public function created_by()
+    public function brands()
     {
-        return $this->belongsTo(User::class, 'created_by', 'id');
-    }
-
-    public function approved_by()
-    {
-        return $this->belongsTo(User::class, 'username');
+        return $this->hasMany(Brand::class, 'category_id', 'id')->where('active_status', '1');
     }
 }

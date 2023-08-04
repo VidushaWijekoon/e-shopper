@@ -36,12 +36,9 @@ class ProductRequestForm extends FormRequest
             'product_discount_percent' => ['required', 'integer'],
             'product_quantity' => ['required', 'integer'],
             'tranding' => ['required', 'nullable'],
-            'status' => ['required', 'nullable'],
             'product_meta_title' => ['required', 'string'],
             'product_meta_keyword' => ['required', 'string'],
             'product_meta_description' => ['required', 'string'],
-
-            'image' => ['required'],
 
         ];
     }

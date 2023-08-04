@@ -27,10 +27,10 @@
                                 <label for="Category" class="form-label">Category
                                     <span class="text-danger">*</span>
                                 </label>
-                                <select class="form-select" name="category_id">
-                                    <option selected>Please Select Category</option>
+                                <select class="form-select  form-control" name="category_id">
+                                    <option selected>Please Select Brand</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                        <option value="{{ $category->id }}">{{ ucfirst($category->title) }}</option>
                                     @endforeach
                                 </select>
                                 @error('category_id')
@@ -44,7 +44,7 @@
                                 <label for="Title" class="form-label">Product Title
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="Title" class="form-control" placeholder="Brand Title"
+                                <input type="text" id="Title" class="form-control" placeholder="Product Title"
                                     name="title">
                                 @error('title')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -57,7 +57,7 @@
                                 <label for="Title" class="form-label">Product Name
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="Title" class="form-control" placeholder="Brand Title"
+                                <input type="text" id="Title" class="form-control" placeholder="Product Title"
                                     name="name">
                                 @error('name')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -70,7 +70,7 @@
                                 <label for="Title" class="form-label">Product Slug
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="Title" class="form-control" placeholder="Brand Title"
+                                <input type="text" id="Title" class="form-control" placeholder="Product Title"
                                     name="slug">
                                 @error('slug')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -83,11 +83,11 @@
                                 <label for="Title" class="form-label">Product Brand
                                     <span class="text-danger">*</span>
                                 </label>
-                                <select class="form-select" name="brand_id">
+                                <select class="form-select  form-control" name="brand_id">
                                     <option selected>Please Select Brand</option>
-                                    {{-- @foreach ($brand as $brand)
-                                <option value="{{ $brand->id }}">{{ $brand->title }}</option>
-                                @endforeach --}}
+                                    @foreach ($brand as $brand)
+                                        <option value="{{ $brand->id }}">{{ ucfirst($brand->title) }}</option>
+                                    @endforeach
                                 </select>
                                 @error('brand_id')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -100,7 +100,8 @@
                                 <label for="Title" class="form-label">Product Infomation
                                     <span class="text-danger">*</span>
                                 </label>
-                                <textarea id="" rows="3" name="product_information" class="form-control"></textarea>
+                                <textarea id="" rows="3" name="product_information" class="form-control"
+                                    placeholder="Product Information"></textarea>
                                 @error('product_information')
                                     <span class="text-danger mt-1">{{ $message }}</span>
                                 @enderror
@@ -112,7 +113,8 @@
                                 <label for="Title" class="form-label">Additional Information
                                     <span class="text-danger">*</span>
                                 </label>
-                                <textarea id="" rows="3" name="additional_information" class="form-control"></textarea>
+                                <textarea id="" rows="3" name="additional_information" class="form-control"
+                                    placeholder="Additiona Information"></textarea>
                                 @error('additional_information')
                                     <span class="text-danger mt-1">{{ $message }}</span>
                                 @enderror
@@ -124,7 +126,7 @@
                                 <label for="Title" class="form-label">Short Description
                                     <span class="text-danger">*</span>
                                 </label>
-                                <textarea id="" rows="3" name="short_description" class="form-control"></textarea>
+                                <textarea id="" rows="3" name="short_description" class="form-control" placeholder="Short Description"></textarea>
                                 @error('short_description')
                                     <span class="text-danger mt-1">{{ $message }}</span>
                                 @enderror
@@ -146,7 +148,7 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="file" id="Image" class="form-control" multiple name="image[]"
-                                    accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
+                                    accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg" required>
                                 @error('image')
                                     <span class="text-danger mt-1">{{ $message }}</span>
                                 @enderror
@@ -164,7 +166,7 @@
                             <div class="row">
                                 @forelse ($colors as $colorItem)
                                     <div class="col-md-6">
-                                        <div class="p-2 border mb-3">
+                                        <div class="p-2 mb-3">
                                             <div class="d-flex">
                                                 <div class="mb-2 mt-2">Colour:</div>
                                                 <input type="checkbox" name="colors[{{ $colorItem->id }}]"
@@ -176,7 +178,7 @@
                                             <br>
                                             <div class="d-flex">
                                                 <div class="">Quantity:</div>
-                                                <input type="number" class="mx-2"
+                                                <input type="number" class="mx-2" min="0"
                                                     name="colorquantity[{{ $colorItem->id }}]"
                                                     style="width: 70px; border: 1px soild black">
                                             </div>
@@ -274,29 +276,6 @@
                                 </div>
                             </div>
                             @error('tranding')
-                                <span class="text-danger mt-1">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 col-sm-12">
-                                <label for="Image" class="form-label">Status
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <div class="">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="status" id="visible"
-                                            value="0">
-                                        <label class="form-check-label" for="visible">Active</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="status" id="inlineRadio2"
-                                            value="1">
-                                        <label class="form-check-label" for="inlineRadio2">Inactive</label>
-                                    </div>
-                                </div>
-                            </div>
-                            @error('status')
                                 <span class="text-danger mt-1">{{ $message }}</span>
                             @enderror
                         </div>

@@ -80,8 +80,9 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/product/{product}/edit', 'edit')->name('admin.product.edit');
         Route::put('/product/{product}/', 'update')->name('admin.product.update');
         Route::get('/product/{product}/destroy', 'destroy')->name('admin.product.destroy');
-
         Route::get('/product-image/{product}/delete', 'destroyImage')->name('admin.product.product.image');
+        Route::get('/product/{product}/activate', 'activate')->name('admin.product.activate');
+        Route::get('/product/{product}/dectivate', 'dectivate')->name('admin.product.dectivate');
     });
 
     Route::controller(SliderController::class)->group(function () {
@@ -96,9 +97,9 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 
     Route::controller(ApproveController::class)->group(function () {
         Route::get('/approval-stages', 'index')->name('admin.approval-stages');
-
-        Route::get('/approval/{category}/category_edit', 'category_edit')->name('category_edit');
-        Route::get('/approval/{color}/colour_edit', 'colour_edit')->name('colour_edit');
-        Route::get('/approval/{brand}/brand_edit', 'brand_edit')->name('brand_edit');
+        Route::get('/approval/{category}/category_approval', 'category_approval')->name('category_approval');
+        Route::get('/approval/{color}/color_approval', 'color_approval')->name('color_approval');
+        Route::get('/approval/{brand}/brand_approval', 'brand_approval')->name('brand_approval');
+        Route::get('/approval/{brand}/product_approval', 'product_approval')->name('product_approval');
     });
 });

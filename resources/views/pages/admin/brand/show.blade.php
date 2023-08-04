@@ -83,20 +83,19 @@
             <div class="card">
                 <div class="card-header" style="background: #222e3c">
                     <span class="card-title mb-0 d-flex justify-content-between">
-                        <h4 style="color: #e9ecef">Existing Category</h4>
+                        <h4 style="color: #e9ecef">Existing Brand</h4>
                     </span>
                 </div>
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        @forelse ($allBrand as $categoryItem)
+                        @forelse ($allBrand as $brandItem)
                             <div class="d-flex justify-content-between">
 
                                 <span class="d-flex align-items-center text-capitalize"
-                                    style="font-weight: bold; font-size: 16px">{{ $categoryItem->title }}</span>
+                                    style="font-weight: bold; font-size: 16px">{{ $brandItem->title }}</span>
                                 <span class="mt-3">
-                                    <img src="{{ asset($categoryItem->image) }}" alt="{{ $categoryItem->title }}"
-                                        height="50">
+                                    <img src="{{ asset($brandItem->image) }}" alt="{{ $brandItem->title }}" height="50">
                                 </span>
 
                             </div>

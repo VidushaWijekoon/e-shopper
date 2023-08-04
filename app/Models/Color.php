@@ -22,9 +22,4 @@ class Color extends Model
         'created_by',
         'approved_by'
     ];
-
-    public function categories()
-    {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
-    }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Models\Brand;
-use App\Models\Colour;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -12,7 +12,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\ProductRequestForm;
-use App\Models\Color;
 
 class ProductController extends Controller
 {
@@ -23,9 +22,10 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $colors = Color::all();
-        return view('pages.admin.product.create', ['categories' => $categories,  'colors' => $colors]);
+        $categories = Category::where('approve_status', '1')->get();
+        $colors = Color::where('approve_status', '1')->get();
+        $brand = Brand::where('approve_status', '1')->get();
+        return view('pages.admin.product.create', ['categories' => $categories,  'colors' => $colors, 'brand' => $brand]);
     }
 
     public function store(ProductRequestForm $request)
@@ -48,11 +48,13 @@ class ProductController extends Controller
             'product_discount_percent' => $validatedData['product_discount_percent'],
             'product_quantity' => $validatedData['product_quantity'],
             'tranding' => $validatedData['tranding'],
-            'status' => $validatedData['status'],
+            'active_status' => '0',
+            'approve_status' => '0',
             'product_meta_title' => strtolower($validatedData['product_meta_title']),
             'product_meta_keyword' => strtolower($validatedData['product_meta_keyword']),
             'product_meta_description' => strtolower($validatedData['product_meta_description']),
-            'created_by' => Auth::user()->id
+            'created_by' => Auth::user()->id,
+            'approved_by' => Auth::user()->id
         ]);
 
         if ($request->hasFile('image')) {
@@ -75,9 +77,9 @@ class ProductController extends Controller
 
         if ($request->colors) {
             foreach ($request->colors as $key => $color) {
-                $product->productColour()->create([
+                $product->productColor()->create([
                     'product_id' => $product->id,
-                    'colour_id' => $color,
+                    'color_id' => $color,
                     'quantity' => $request->colorquantity[$key] ?? 0,
                     'created_by' => Auth::user()->id
                 ]);
@@ -100,7 +102,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($product);
         $categories = Category::all();
         $colors = Color::all();
-        return view('pages.admin.product.edit', ['product' => $product, 'categories' => $categories, 'colors' => $colors]);
+        $brand = Brand::all();
+        return view('pages.admin.product.edit', ['product' => $product, 'categories' => $categories, 'colors' => $colors, 'brand' => $brand]);
     }
 
     public function update(ProductRequestForm $request, $product)
@@ -180,5 +183,27 @@ class ProductController extends Controller
         }
         $product->delete();
         return redirect()->back()->with('message', 'Product Has Been Deleted');
+    }
+
+    public function activate($product)
+    {
+        $product = Product::findOrFail($product);
+
+        if ($product->approve_status == '1') {
+            $product->active_status = '1';
+            $product->update();
+            return redirect()->back()->with('message', 'Product Activated');
+        } else {
+            return redirect()->back()->with('message', 'You Cannot Activated This Product Need Approved');
+        }
+    }
+
+    public function dectivate($product)
+    {
+        $product = Product::findOrFail($product);
+
+        $product->active_status = '0';
+        $product->update();
+        return redirect()->back()->with('message', 'Successfully Deactivate Product');
     }
 }
