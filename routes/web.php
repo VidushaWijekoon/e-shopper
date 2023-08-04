@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\Approve\ApproveController;
-use App\Http\Controllers\Admin\Category\CategoryController;
-use App\Http\Controllers\Admin\Home\AdminHomepageController;
-use App\Http\Controllers\Frontend\Home\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Brand\BrandController;
+use App\Http\Controllers\Admin\Color\ColorController;
+use App\Http\Controllers\Admin\Approve\ApproveController;
+use App\Http\Controllers\Admin\Product\ProductController;
+use App\Http\Controllers\Frontend\Home\FrontendController;
+use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Home\AdminHomepageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,13 +49,27 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     });
 
     Route::controller(ColorController::class)->group(function () {
-        Route::get('/color', 'index')->name('admin.color');
+        Route::get('/color-brand', 'index')->name('admin.color-brand');
         Route::get('/color/create', 'create')->name('admin.color.create');
         Route::post('/color', 'store')->name('admin.color.store');
         Route::get('/color/{color}/show', 'show')->name('admin.color.show');
         Route::get('/color/{color}/edit', 'edit')->name('admin.color.edit');
         Route::put('/color/{color}/', 'update')->name('admin.color.update');
         Route::get('/color/{color}/destroy', 'destroy')->name('admin.color.destroy');
+        Route::get('/color/{color}/activate', 'activate')->name('admin.color.activate');
+        Route::get('/color/{color}/dectivate', 'dectivate')->name('admin.color.dectivate');
+    });
+
+    Route::controller(BrandController::class)->group(function () {
+        Route::get('/color-brand', 'index')->name('admin.color-brand');
+        Route::get('/brand/create', 'create')->name('admin.brand.create');
+        Route::post('/brand/', 'save')->name('admin.brand.save');
+        Route::get('/brand/{brand}/show', 'show')->name('admin.brand.show');
+        Route::get('/brand/{brand}/edit', 'edit')->name('admin.brand.edit');
+        Route::put('/brand/{brand}/', 'update')->name('admin.brand.update');
+        Route::get('/brand/{brand}/destroy', 'destroy')->name('admin.brand.destroy');
+        Route::get('/brand/{brand}/activate', 'activate')->name('admin.brand.activate');
+        Route::get('/brand/{brand}/dectivate', 'dectivate')->name('admin.brand.dectivate');
     });
 
     Route::controller(ProductController::class)->group(function () {
@@ -63,7 +80,6 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/product/{product}/edit', 'edit')->name('admin.product.edit');
         Route::put('/product/{product}/', 'update')->name('admin.product.update');
         Route::get('/product/{product}/destroy', 'destroy')->name('admin.product.destroy');
-
 
         Route::get('/product-image/{product}/delete', 'destroyImage')->name('admin.product.product.image');
     });
@@ -82,5 +98,7 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/approval-stages', 'index')->name('admin.approval-stages');
 
         Route::get('/approval/{category}/category_edit', 'category_edit')->name('category_edit');
+        Route::get('/approval/{color}/colour_edit', 'colour_edit')->name('colour_edit');
+        Route::get('/approval/{brand}/brand_edit', 'brand_edit')->name('brand_edit');
     });
 });

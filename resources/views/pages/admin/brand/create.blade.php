@@ -1,12 +1,12 @@
 @extends('layouts.admin.app')
-@section('title', 'Create Color')
+@section('title', 'Create Brand')
 @section('content')
     <div class="row">
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header" style="background: #222e3c">
                     <span class="card-title mb-0 d-flex justify-content-between">
-                        <h4 style="color: #e9ecef">Create New Color</h4>
+                        <h4 style="color: #e9ecef">Create New Brand</h4>
                     </span>
                 </div>
 
@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.color.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.brand.save') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -46,7 +46,7 @@
                                 <label for="Title" class="form-label">Title
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="Title" class="form-control" placeholder="Color Title"
+                                <input type="text" id="Title" class="form-control" placeholder="Brand Title"
                                     name="title">
                                 @error('title')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -59,7 +59,7 @@
                                 <label for="Slug" class="form-label">Slug
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="Slug" class="form-control" placeholder="Color Slug"
+                                <input type="text" id="Slug" class="form-control" placeholder="Brand Slug"
                                     name="slug">
                                 @error('slug')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -85,7 +85,7 @@
                                 <label for="Slug" class="form-label">Description
                                     <span class="text-danger">*</span>
                                 </label>
-                                <textarea type="text" id="Slug" class="form-control" rows="3" placeholder="Color Description"
+                                <textarea type="text" id="Slug" class="form-control" rows="3" placeholder="Brand Description"
                                     name="description"></textarea>
                                 @error('description')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -95,7 +95,7 @@
 
                         <hr class=" mb-3 mt-4">
 
-                        <button type="submit" class="btn btn-sm btn-info float-end">Create New Color</button>
+                        <button type="submit" class="btn btn-sm btn-info float-end">Create New Brand</button>
 
                     </form>
 
@@ -114,14 +114,14 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        @forelse ($color as $colorItems)
+                        @forelse ($brand as $categoryItem)
                             <div class="d-flex justify-content-between">
 
                                 <span class="d-flex align-items-center text-capitalize"
-                                    style="font-weight: bold; font-size: 16px">{{ $colorItems->title }}</span>
+                                    style="font-weight: bold; font-size: 16px">{{ $categoryItem->title }}</span>
                                 <span class="mt-3">
-                                    <img src="{{ asset($colorItems->image) }}" alt="{{ $colorItems->title }}"
-                                        height="50" width="50">
+                                    <img src="{{ asset($categoryItem->image) }}" alt="{{ $categoryItem->title }}"
+                                        height="50">
                                 </span>
 
                             </div>

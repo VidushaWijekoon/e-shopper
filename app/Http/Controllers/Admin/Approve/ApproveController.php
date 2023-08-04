@@ -6,6 +6,7 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 
 class ApproveController extends Controller
 {
@@ -13,13 +14,15 @@ class ApproveController extends Controller
     {
         $categories = Category::where('approve_status', '0')->get();
         $color = Color::where('approve_status', '0')->get();
+        $brand = Brand::where('approve_status', '0')->get();
         $product = Product::where('approve_status', '0')->get();
 
         $rowCategoryCount = Category::where('approve_status', '0')->count();
         $rowColorCount = Color::where('approve_status', '0')->count();
+        $rowBrandCount = Brand::where('approve_status', '0')->count();
         $rowProductCount = Product::where('approve_status', '0')->count();
 
-        return view('pages.admin.approve.index', compact('categories', 'product', 'color', 'rowCategoryCount',  'rowColorCount', 'rowProductCount'));
+        return view('pages.admin.approve.index', compact('categories', 'product', 'color', 'brand', 'rowCategoryCount',  'rowColorCount', 'rowBrandCount', 'rowProductCount'));
     }
 
     public function category_edit($category)
@@ -28,6 +31,22 @@ class ApproveController extends Controller
         $category->approve_status = '1';
 
         $category->update();
-        return redirect()->back()->with('message', 'Successfully Update Category Status');
+        return redirect()->back()->with('message', 'Category Has Been Approved');
+    }
+
+    public function colour_edit($color)
+    {
+        $color = Color::findOrFail($color);
+        $color->approve_status = '1';
+        $color->update();
+        return redirect()->back()->with('message', 'Color Has Been Approved');
+    }
+
+    public function brand_edit($brand)
+    {
+        $brand = Brand::findOrFail($brand);
+        $brand->approve_status = '1';
+        $brand->update();
+        return redirect()->back()->with('message', 'Brand Has Been Approved');
     }
 }

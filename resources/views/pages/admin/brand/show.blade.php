@@ -1,12 +1,12 @@
 @extends('layouts.admin.app')
-@section('title', 'View Color')
+@section('title', 'View brand')
 @section('content')
     <div class="row">
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header" style="background: #222e3c">
                     <span class="card-title mb-0 d-flex justify-content-between">
-                        <h4 style="color: #e9ecef">{{ $color->title }} : color</h4>
+                        <h4 style="color: #e9ecef">{{ $brand->title }} : brand</h4>
                     </span>
                 </div>
 
@@ -26,7 +26,7 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <input type="text" id="Title" class="form-control"
-                                value="{{ $color->categories->title }}" readonly disabled>
+                                value="{{ $brand->categories->title }}" readonly disabled>
 
                         </div>
                     </div>
@@ -36,19 +36,9 @@
                             <label for="Title" class="form-label">Title
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="text" id="Title" class="form-control" value="{{ $color->title }}" readonly
+                            <input type="text" id="Title" class="form-control" value="{{ $brand->title }}" readonly
                                 disabled>
 
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-12">
-                            <label for="Slug" class="form-label">Slug
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="text" id="Slug" class="form-control" value="{{ $color->slug }}" readonly
-                                disabled>
                         </div>
                     </div>
 
@@ -57,8 +47,18 @@
                             <label for="Image" class="form-label">Image
                                 <span class="text-danger">*</span>
                             </label>
-                            <img src="{{ asset($color->image) }}" alt="image{{ $color->title }}"
-                                class="border rounded-circle d-block" style="width: 40px; height: 35px">
+                            <img src="{{ asset($brand->image) }}" alt="image{{ $brand->title }}" class="  d-block"
+                                style="width: 100px; height: 35px">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="Slug" class="form-label">Slug
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" id="Slug" class="form-control" value="{{ $brand->slug }}" readonly
+                                disabled>
                         </div>
                     </div>
 
@@ -67,7 +67,8 @@
                             <label for="Slug" class="form-label">Description
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea type="text" id="Slug" class="form-control" rows="3" readonly disabled> {{ $color->description }}</textarea>
+                            <textarea type="text" id="Slug" class="form-control" rows="3" readonly disabled> {{ $brand->description }}</textarea>
+
                         </div>
                     </div>
 
@@ -88,14 +89,14 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        @forelse ($allcolor as $colorItems)
+                        @forelse ($allBrand as $categoryItem)
                             <div class="d-flex justify-content-between">
 
                                 <span class="d-flex align-items-center text-capitalize"
-                                    style="font-weight: bold; font-size: 16px">{{ $colorItems->title }}</span>
+                                    style="font-weight: bold; font-size: 16px">{{ $categoryItem->title }}</span>
                                 <span class="mt-3">
-                                    <img src="{{ asset($colorItems->image) }}" alt="{{ $colorItems->title }}"
-                                        height="50" width="50">
+                                    <img src="{{ asset($categoryItem->image) }}" alt="{{ $categoryItem->title }}"
+                                        height="50">
                                 </span>
 
                             </div>

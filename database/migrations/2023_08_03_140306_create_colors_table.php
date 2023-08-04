@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('title')->unique();
             $table->string('slug');
+            $table->string('image');
             $table->tinyText('description');
             $table->tinyInteger('active_status')->default('0')->nullable()->comment('0=Inactive, 1=Active');
             $table->tinyInteger('approve_status')->default('0')->nullable()->comment('0=Pending, 1=Approve');

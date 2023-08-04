@@ -68,67 +68,132 @@
         </div>
     @endif
 
-    @if ($rowColorCount > 0)
-        <!-- Colors -->
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title mb-0 d-flex justify-content-between">
-                        <h4 class="d-flex align-items-center mt-auto">Colors</h4>
-                    </span>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
-                            <thead style="background: #e9ecef">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Slug</th>
-                                    <th>Category</th>
-                                    <th>Created Date</th>
-                                    <th>Created By</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $i = 1; ?>
-                                @forelse ($color as $colorItem)
+    <div class="row">
+        @if ($rowColorCount > 0)
+            <!-- Colors -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title mb-0 d-flex justify-content-between">
+                            <h4 class="d-flex align-items-center mt-auto">Colors</h4>
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background: #e9ecef">
                                     <tr>
-                                        <td>
-                                            <?= $i++ ?>
-                                        </td>
-                                        <td>{{ $colorItem->title }}</td>
-                                        <td>{{ $colorItem->slug }}</td>
-                                        <td>Brand</td>
-                                        <td>{{ $colorItem->created_at }}</td>
-                                        <td>{{ $colorItem->created_by }}</td>
-                                        <td>
-                                            @if ($colorItem->approve_status == '0')
-                                                <span
-                                                    class="badge text-bg-warning rounded-pill p-1 px-2 text-white">Pending</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{ url('admin/approval/' . $colorItem->id . '/colour_edit') }}"
-                                                onclick="return confirm('are you sure you want to approve this brand')">
-                                                <i class="fa-solid fa-circle-check text-success mx-auto"></i>
-                                            </a>
-                                        </td>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Slug</th>
+                                        <th>Category</th>
+                                        <th>Created Date</th>
+                                        <th>Created By</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
-                                @empty
-                                    <span>No Brand to Approve</span>
-                                @endforelse
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    @forelse ($color as $colorItem)
+                                        <tr>
+                                            <td>
+                                                <?= $i++ ?>
+                                            </td>
+                                            <td>{{ $colorItem->title }}</td>
+                                            <td>{{ $colorItem->slug }}</td>
+                                            <td>Brand</td>
+                                            <td>{{ $colorItem->created_at }}</td>
+                                            <td>{{ $colorItem->created_by }}</td>
+                                            <td>
+                                                @if ($colorItem->approve_status == '0')
+                                                    <span
+                                                        class="badge badge-danger text-bg-warning rounded-pill p-1 px-2 text-white">Pending</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('admin/approval/' . $colorItem->id . '/colour_edit') }}"
+                                                    onclick="return confirm('are you sure you want to approve this brand')">
+                                                    <i class="fa-solid fa-circle-check text-success mx-auto"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <span>No Brand to Approve</span>
+                                    @endforelse
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endif
+        @endif
+
+        @if ($rowBrandCount > 0)
+            <!-- Colors -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title mb-0 d-flex justify-content-between">
+                            <h4 class="d-flex align-items-center mt-auto">Colors</h4>
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background: #e9ecef">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Slug</th>
+                                        <th>Category</th>
+                                        <th>Created Date</th>
+                                        <th>Created By</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    @forelse ($brand as $colorItem)
+                                        <tr>
+                                            <td>
+                                                <?= $i++ ?>
+                                            </td>
+                                            <td>{{ $colorItem->title }}</td>
+                                            <td>{{ $colorItem->slug }}</td>
+                                            <td>Brand</td>
+                                            <td>{{ $colorItem->created_at }}</td>
+                                            <td>{{ $colorItem->created_by }}</td>
+                                            <td>
+                                                @if ($colorItem->approve_status == '0')
+                                                    <span
+                                                        class="badge badge-danger text-bg-warning rounded-pill p-1 px-2 text-white">Pending</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('admin/approval/' . $colorItem->id . '/brand_edit') }}"
+                                                    onclick="return confirm('are you sure you want to approve this brand')">
+                                                    <i class="fa-solid fa-circle-check text-success mx-auto"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <span>No Brand to Approve</span>
+                                    @endforelse
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+    </div>
 
 
 

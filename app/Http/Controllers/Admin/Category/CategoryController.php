@@ -12,7 +12,6 @@ use App\Http\Requests\Admin\CategoryRequestForm;
 
 class CategoryController extends Controller
 {
-    public $categoryItems = NULL;
     public function index()
     {
         return view('pages.admin.category.index');
