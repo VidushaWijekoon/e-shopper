@@ -9,7 +9,11 @@ use App\Http\Controllers\Admin\Approve\ApproveController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Frontend\Home\FrontendController;
 use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Coupens\CoupensController;
 use App\Http\Controllers\Admin\Home\AdminHomepageController;
+use App\Http\Controllers\Admin\Offers\OffersController;
+use App\Http\Controllers\Admin\Promotions\PromotionsController;
+use App\Http\Controllers\Admin\Users\UsersContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +100,23 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/slider/{slider}/destroy', 'destroy')->name('admin.slider.destroy');
         Route::get('/slider/{slider}/activate', 'activate')->name('admin.slider.activate');
         Route::get('/slider/{slider}/dectivate', 'dectivate')->name('admin.slider.dectivate');
+    });
+
+    Route::controller(PromotionsController::class)->group(function () {
+        Route::get('/promotions', 'index')->name('admin.promotions');
+    });
+
+    Route::controller(OffersController::class)->group(function () {
+        Route::get('/offers', 'index')->name('admin.offers');
+    });
+
+    Route::controller(CoupensController::class)->group(function () {
+        Route::get('/coupens', 'index')->name('admin.coupens');
+    });
+
+    Route::controller(UsersContoller::class)->group(function () {
+        Route::get('/users', 'index')->name('admin.users');
+        Route::get('/user/{user}/show', 'show')->name('admin.user.show');
     });
 
     Route::controller(ApproveController::class)->group(function () {

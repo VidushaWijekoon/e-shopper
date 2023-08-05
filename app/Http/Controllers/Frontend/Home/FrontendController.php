@@ -17,10 +17,11 @@ class FrontendController extends Controller
 
     public function product($category_slug)
     {
+        $categories = Category::where('active_status', '1')->where('approve_status', '1')->get();
         $category = Category::where('slug', $category_slug)->first();
         if ($category) {
             $products = $category->products()->get();
-            return view('pages.frontend.collections.products', compact('category'));
+            return view('pages.frontend.collections.products', compact('category', 'categories'));
         } else {
             return redirect()->back();
         }

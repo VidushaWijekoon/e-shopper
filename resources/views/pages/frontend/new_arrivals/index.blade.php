@@ -1,4 +1,4 @@
-<div class="container new-arrivals">
+<div class="new-arrivals">
     <div class="heading heading-flex mb-3">
         <div class="heading-left">
             <h2 class="title">New Arrivals</h2><!-- End .title -->

@@ -1,4 +1,4 @@
-<div class="container trending-products">
+<div class="trending-products">
     <div class="heading heading-flex mb-3">
         <div class="heading-left">
             <h2 class="title">Trending Products</h2><!-- End .title -->

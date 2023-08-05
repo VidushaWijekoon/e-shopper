@@ -6,13 +6,13 @@
     @endif
 
     <div class="title">
-        <h5 class="mx-2 mb-3">Waiting for Appproval</h5>
+        <h2 class="mb-3">{{ __('Waiting for Appproval') }}</h2>
     </div>
 
     @if ($rowCategoryCount > 0)
         <div class="row">
             <div class="col-md-12">
-                <h6>Category Need to Approve</h6>
+                <h6>{{ __('Category Need to Approve') }}</h6>
                 <div class="card">
                     <div class="card-body mt-2">
                         <div class="table-responsive">
@@ -20,13 +20,13 @@
                                 <thead style="background: #e9ecef">
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Slug</th>
-                                        <th>Category</th>
-                                        <th>Created Date</th>
-                                        <th>Created By</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Category') }}</th>
+                                        <th>{{ __('Created Date') }}</th>
+                                        <th>{{ __('Created By') }}</th>
+                                        <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,7 +73,7 @@
         @if ($rowColorCount > 0)
             <!-- Colors -->
             <div class="col-md-6">
-                <h6>Colors Need to Approve</h6>
+                <h6>{{ __('Colors Need to Approve') }}</h6>
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -81,13 +81,13 @@
                                 <thead style="background: #e9ecef">
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Slug</th>
-                                        <th>Category</th>
-                                        <th>Created Date</th>
-                                        <th>Created By</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Category') }}</th>
+                                        <th>{{ __('Created Date') }}</th>
+                                        <th>{{ __('Created By') }}</th>
+                                        <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,7 +117,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <span>No Brand to Approve</span>
+                                        <span>{{ __('No Brand to Approve') }}</span>
                                     @endforelse
 
                                 </tbody>
@@ -132,7 +132,7 @@
         @if ($rowBrandCount > 0)
             <!-- Colors -->
             <div class="col-md-6">
-                <h6>Brands Need to Approve</h6>
+                <h6>{{ __('Brands Need to Approve') }}</h6>
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -140,13 +140,13 @@
                                 <thead style="background: #e9ecef">
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Slug</th>
-                                        <th>Category</th>
-                                        <th>Created Date</th>
-                                        <th>Created By</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Category') }}</th>
+                                        <th>{{ __('Created Date') }}</th>
+                                        <th>{{ __('Created By') }}</th>
+                                        <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -176,7 +176,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <span>No Brand to Approve</span>
+                                        <span>{{ __('No Brand to Approve') }}</span>
                                     @endforelse
 
                                 </tbody>
@@ -191,7 +191,7 @@
     </div>
 
     @if ($rowProductCount > 0)
-        <h6>Products Need to Approve</h6>
+        <h6>{{ __('Products Need to Approve') }}</h6>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -201,14 +201,14 @@
                                 <thead style="background: #e9ecef">
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Category</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Category') }}</th>
                                         <th>Original Price</th>
                                         <th>Selling Price</th>
                                         <th>QTY</th>
                                         <th>Tranding</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -245,7 +245,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <span>No Data Found!</span>
+                                        <span>{{ __('No Data Found!') }}</span>
                                     @endforelse
                                 </tbody>
 
@@ -261,7 +261,7 @@
     @endif
 
     @if ($rowSliderCount > 0)
-        <h6>Slider Need to Approve</h6>
+        <h6>{{ __('Slider Need to Approve') }}</h6>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -271,13 +271,13 @@
                                 <thead style="background: #e9ecef">
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Slug</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
                                         <th>Description</th>
                                         <th>Image</th>
                                         <th>Price</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -308,7 +308,7 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <span>No Data Found!</span>
+                                        <span>{{ __('No Data Found!') }}</span>
                                     @endforelse
                                 </tbody>
 

@@ -11,6 +11,7 @@ class ColorBrand extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+
     public function render()
     {
         $color = Color::orderBy('id', 'ASC')->paginate(10);
