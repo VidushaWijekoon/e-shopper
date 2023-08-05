@@ -77,25 +77,22 @@
                 </a>
             </li>
 
-            <li class="sidebar-item {{ 'admin/promotions' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
-                    <i class="align-middle" data-feather="list"></i>
-                    <span class="align-middle">Promotions</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item {{ 'admin/offers' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
+            <li class="sidebar-item">
+                <a href="#promotion" data-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="command"></i>
-                    <span class="align-middle">Offers</span>
+                    <span class="align-middle">Promotion Coupen & Offers</span>
                 </a>
-            </li>
-
-            <li class="sidebar-item {{ 'admin/offers' == request()->path() ? 'active' : '' }}">
-                <a class="sidebar-link" href="#">
-                    <i class="align-middle" data-feather="crop"></i>
-                    <span class="align-middle">Coupen</span>
-                </a>
+                <ul id="promotion" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Promotions</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Offers</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#">Coupens</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="sidebar-header">Finance & Reports</li>
@@ -120,7 +117,7 @@
                         <a class="sidebar-link" href="#">Buttons</a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="ui-cards.html">Cards</a>
+                        <a class="sidebar-link" href="#">Cards</a>
                     </li>
                 </ul>
             </li>

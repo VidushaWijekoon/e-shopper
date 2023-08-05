@@ -10,7 +10,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $slider = Slider::all();
+        $slider = Slider::where('active_status', '1')->where('approve_status', '1')->get();
         $categories = Category::where('active_status', '1')->where('approve_status', '1')->get();
         return view('pages.frontend.home.index', ['slider' => $slider, 'categories' => $categories]);
     }

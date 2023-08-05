@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Color\ColorController;
+use App\Http\Controllers\Admin\Slider\SliderController;
 use App\Http\Controllers\Admin\Approve\ApproveController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Frontend\Home\FrontendController;
@@ -93,6 +94,8 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/slider/{slider}/edit', 'edit')->name('admin.slider.edit');
         Route::put('/slider/{slider}/', 'update')->name('admin.slider.update');
         Route::get('/slider/{slider}/destroy', 'destroy')->name('admin.slider.destroy');
+        Route::get('/slider/{slider}/activate', 'activate')->name('admin.slider.activate');
+        Route::get('/slider/{slider}/dectivate', 'dectivate')->name('admin.slider.dectivate');
     });
 
     Route::controller(ApproveController::class)->group(function () {
@@ -101,5 +104,6 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/approval/{color}/color_approval', 'color_approval')->name('color_approval');
         Route::get('/approval/{brand}/brand_approval', 'brand_approval')->name('brand_approval');
         Route::get('/approval/{brand}/product_approval', 'product_approval')->name('product_approval');
+        Route::get('/approval/{brand}/slider_approval', 'slider_approval')->name('slider_approval');
     });
 });

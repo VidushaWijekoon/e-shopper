@@ -260,5 +260,67 @@
         </div>
     @endif
 
+    @if ($rowSliderCount > 0)
+        <h6>Slider Need to Approve</h6>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background: #e9ecef">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Slug</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    @forelse ($slider as $key => $sliderItem)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $sliderItem->title }}</td>
+                                            <td class="text-capitalize">{{ $sliderItem->title }}</td>
+                                            <td>{{ $sliderItem->short_description }}</td>
+                                            <td>
+                                                <img src="{{ asset($sliderItem->image) }}" alt="{{ $sliderItem->title }}"
+                                                    class="d-block" width="100" height="50">
+                                            </td>
+                                            <td>{{ $sliderItem->price }}</td>
+                                            <td>
+                                                @if ($sliderItem->approve_status == '0')
+                                                    <span
+                                                        class="badge badge-danger text-bg-warning rounded-pill p-1 px-2 text-white">Waiting
+                                                        for Approve </span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('admin/approval/' . $sliderItem->id . '/slider_approval') }}"
+                                                    onclick="return confirm('are you sure you want to approve this brand')">
+                                                    <i class="fa-solid fa-circle-check text-success mx-auto"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <span>No Data Found!</span>
+                                    @endforelse
+                                </tbody>
+
+                            </table>
+                            <div class="d-flex float-end">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
 @endsection

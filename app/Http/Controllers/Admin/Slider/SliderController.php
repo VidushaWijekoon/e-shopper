@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Slider;
 
 use App\Models\Slider;
 use Illuminate\Support\Str;
@@ -42,7 +42,6 @@ class SliderController extends Controller
             $slider->image = $uploadPath . $filename;
         }
 
-        $slider->status = $validate['status'];
         $slider->created_by = Auth::user()->id;
         $slider->approved_by = Auth::user()->id;
 
@@ -82,7 +81,6 @@ class SliderController extends Controller
             $slider->image = $uploadPath . $filename;
         }
 
-        $slider->status = $validatedData['status'];
         $slider->created_by = Auth::user()->id;
         $slider->approved_by = Auth::user()->id;
 
@@ -101,5 +99,27 @@ class SliderController extends Controller
 
         $slider->delete();
         return redirect()->back()->with('message', 'Slider has been removed');
+    }
+
+    public function activate($slider)
+    {
+        $slider = Slider::findOrFail($slider);
+
+        if ($slider->approve_status == '1') {
+            $slider->active_status = '1';
+            $slider->update();
+            return redirect()->back()->with('message', 'Slider Activated');
+        } else {
+            return redirect()->back()->with('message', 'You Cannot Activated This Slider Need Approved');
+        }
+    }
+
+    public function dectivate($slider)
+    {
+        $slider = Slider::findOrFail($slider);
+
+        $slider->active_status = '0';
+        $slider->update();
+        return redirect()->back()->with('message', 'Successfully Deactivate Slider');
     }
 }

@@ -27,7 +27,6 @@ class SliderRequestForm extends FormRequest
             'short_description' => ['required', 'string', 'max:50'],
             'price' => ['required', 'integer'],
             'image' => ['required', 'mimes:png,jpg,jpeg'],
-            'status' => ['required', 'nullable'],
 
         ];
     }

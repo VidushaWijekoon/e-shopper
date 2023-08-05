@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Approve;
 
-use App\Models\Color;
-use App\Models\Product;
 use App\Models\Category;
-use App\Http\Controllers\Controller;
+use App\Models\Color;
 use App\Models\Brand;
+use App\Models\Product;
+use App\Models\Slider;
+use App\Http\Controllers\Controller;
 
 class ApproveController extends Controller
 {
@@ -16,13 +17,26 @@ class ApproveController extends Controller
         $color = Color::where('approve_status', '0')->get();
         $brand = Brand::where('approve_status', '0')->get();
         $product = Product::where('approve_status', '0')->get();
+        $slider = Slider::where('approve_status', '0')->get();
 
         $rowCategoryCount = Category::where('approve_status', '0')->count();
         $rowColorCount = Color::where('approve_status', '0')->count();
         $rowBrandCount = Brand::where('approve_status', '0')->count();
         $rowProductCount = Product::where('approve_status', '0')->count();
+        $rowSliderCount = Slider::where('approve_status', '0')->count();
 
-        return view('pages.admin.approve.index', compact('categories', 'product', 'color', 'brand', 'rowCategoryCount',  'rowColorCount', 'rowBrandCount', 'rowProductCount'));
+        return view('pages.admin.approve.index', compact(
+            'categories',
+            'product',
+            'color',
+            'brand',
+            'slider',
+            'rowCategoryCount',
+            'rowColorCount',
+            'rowBrandCount',
+            'rowProductCount',
+            'rowSliderCount'
+        ));
     }
 
     public function category_approval($category)
@@ -56,5 +70,13 @@ class ApproveController extends Controller
         $product->approve_status = '1';
         $product->update();
         return redirect()->back()->with('message', 'Product Has Been Approved');
+    }
+
+    public function slider_approval($slider)
+    {
+        $slider = Slider::findOrFail($slider);
+        $slider->approve_status = '1';
+        $slider->update();
+        return redirect()->back()->with('message', 'Slider Has Been Approved');
     }
 }
