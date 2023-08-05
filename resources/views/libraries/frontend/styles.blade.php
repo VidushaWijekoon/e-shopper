@@ -10,3 +10,4 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/skins/skin-demo.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/demos/demo.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
