@@ -103,15 +103,20 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     });
 
     Route::controller(PromotionsController::class)->group(function () {
-        Route::get('/promotions', 'index')->name('admin.promotions');
+        Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
+        Route::get('/prmotions', 'promotion_index')->name('admin.promotions_index');
+        Route::get('/promotions/create-promotion', 'create')->name('admin.promotion.create');
+        Route::post('/promotions/', 'store')->name('admin.promotion.store');
     });
 
     Route::controller(OffersController::class)->group(function () {
-        Route::get('/offers', 'index')->name('admin.offers');
+        Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
+        Route::get('/offers', 'offers')->name('admin.offers');
     });
 
     Route::controller(CoupensController::class)->group(function () {
-        Route::get('/coupens', 'index')->name('admin.coupens');
+        Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
+        Route::get('/coupens', 'coupens')->name('admin.coupens');
     });
 
     Route::controller(UsersContoller::class)->group(function () {

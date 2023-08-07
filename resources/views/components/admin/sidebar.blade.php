@@ -77,22 +77,11 @@
                 </a>
             </li>
 
-            <li class="sidebar-item">
-                <a href="#promotion" data-toggle="collapse" class="sidebar-link collapsed">
+            <li class="sidebar-item {{ 'admin/sliders' == request()->path() ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('admin.promotions.coupens.offers') }}">
                     <i class="align-middle" data-feather="command"></i>
                     <span class="align-middle">{{ __('Promotion Coupen & Offers') }}</span>
                 </a>
-                <ul id="promotion" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('admin.promotions') }}">{{ __('Promotions') }}</a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('admin.offers') }}">{{ __('Offers') }}</a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('admin.coupens') }}">{{ __('Coupens') }}</a>
-                    </li>
-                </ul>
             </li>
 
             <li class="sidebar-header">{{ __('Finance & Reports') }}</li>
