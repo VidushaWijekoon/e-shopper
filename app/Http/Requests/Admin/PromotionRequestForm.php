@@ -28,7 +28,6 @@ class PromotionRequestForm extends FormRequest
             'promotion_starting_date' => ['required', 'date'],
             'promotion_discount' => ['required', 'integer'],
             'promotion_price' => ['required', 'integer'],
-            'image' => ['required', 'mimes:png,jpg,jpeg'],
         ];
     }
 }

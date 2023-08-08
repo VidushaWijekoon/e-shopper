@@ -323,4 +323,66 @@
         </div>
     @endif
 
+    @if ($rowPromotionCount > 0)
+        <div class="row">
+            <div class="col-md-12">
+                <h6>{{ __('Promotion Need to Approve') }}</h6>
+                <div class="card">
+                    <div class="card-body mt-2">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background: #e9ecef">
+                                    <tr>
+                                        <th>{{ __('#') }}</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Promotion Starting Date') }}</th>
+                                        <th>{{ __('Promotion Ending At') }}</th>
+                                        <th>{{ __('Promotion Discount') }}</th>
+                                        <th>{{ __('Promotion Price') }}</th>
+                                        <th>{{ __('Created Date') }}</th>
+                                        <th>{{ __('Created By') }}</th>
+                                        <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Action') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($promotion as $promotiosItem)
+                                        <tr>
+                                            <td>#</td>
+                                            <td>{{ $promotiosItem->title }}</td>
+                                            <td>{{ $promotiosItem->slug }}</td>
+                                            <td>{{ $promotiosItem->promotion_starting_date }}</td>
+                                            <td>{{ $promotiosItem->promotion_ends_at }}</td>
+                                            <td>{{ $promotiosItem->promotion_discount }}</td>
+                                            <td>{{ $promotiosItem->promotion_price }}</td>
+                                            <td>{{ $promotiosItem->created_at }}</td>
+                                            <td>{{ $promotiosItem->created_by }}</td>
+                                            <td>
+                                                @if ($promotiosItem->approve_status == '0')
+                                                    <span
+                                                        class="badge badge-danger text-bg-warning rounded-pill p-1 px-2 text-white">Waiting
+                                                        for Approve </span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('admin/approval/' . $promotiosItem->id . '/promotion_approval') }}"
+                                                    onclick="return confirm('are you sure you want to approve this brand')">
+                                                    <i class="fa-solid fa-circle-check text-success mx-auto"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <span>No Promotions</span>
+                                    @endforelse
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 @endsection

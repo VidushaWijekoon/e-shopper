@@ -104,9 +104,15 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 
     Route::controller(PromotionsController::class)->group(function () {
         Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
-        Route::get('/prmotions', 'promotion_index')->name('admin.promotions_index');
-        Route::get('/promotions/create-promotion', 'create')->name('admin.promotion.create');
-        Route::post('/promotions/', 'store')->name('admin.promotion.store');
+        Route::get('/prmotion', 'promotion_index')->name('admin.promotions_index');
+        Route::get('/promotion/create-promotion', 'create')->name('admin.promotion.create');
+        Route::post('/promotion/', 'store')->name('admin.promotion.store');
+        Route::get('/promotion/{promotion}/show', 'show')->name('admin.promotion.show');
+        Route::get('/promotion/{promotion}/edit', 'edit')->name('admin.promotion.edit');
+        Route::put('/promotion/{promotion}/', 'update')->name('admin.promotion.update');
+        Route::get('/promotion/{promotion}/destroy', 'destroy')->name('admin.promotion.destroy');
+        Route::get('/promotion/{promotion}/activate', 'activate')->name('admin.promotion.activate');
+        Route::get('/promotion/{promotion}/dectivate', 'dectivate')->name('admin.promotion.dectivate');
     });
 
     Route::controller(OffersController::class)->group(function () {
@@ -129,7 +135,8 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/approval/{category}/category_approval', 'category_approval')->name('category_approval');
         Route::get('/approval/{color}/color_approval', 'color_approval')->name('color_approval');
         Route::get('/approval/{brand}/brand_approval', 'brand_approval')->name('brand_approval');
-        Route::get('/approval/{brand}/product_approval', 'product_approval')->name('product_approval');
-        Route::get('/approval/{brand}/slider_approval', 'slider_approval')->name('slider_approval');
+        Route::get('/approval/{product}/product_approval', 'product_approval')->name('product_approval');
+        Route::get('/approval/{slider}/slider_approval', 'slider_approval')->name('slider_approval');
+        Route::get('/approval/{promotion}/promotion_approval', 'promotion_approval')->name('promotion_approval');
     });
 });

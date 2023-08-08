@@ -1,14 +1,18 @@
 @extends('layouts.admin.app')
 @section('title', 'Promotions')
 @section('content')
+    @if (session('message'))
+        <div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message') }}</div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <span class="card-title mb-0 d-flex justify-content-between">
-                        <h4 class="d-flex align-items-center mt-auto">Promotions</h4>
-                        <a href="{{ route('admin.promotion.create') }}" class="btn btn-sm btn-primary">Create New
-                            Promotion</a>
+                        <h4 class="d-flex align-items-center mt-auto">{{ __('Promotions') }}</h4>
+                        <a href="{{ route('admin.promotion.create') }}"
+                            class="btn btn-sm btn-primary">{{ __('Create New
+                                                                                                                                                                        Promotion') }}</a>
                     </span>
                 </div>
                 <div class="card-body">
@@ -16,18 +20,18 @@
                         <table class="table table-bordered table-hover">
                             <thead style="background: #e9ecef">
                                 <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Slug</th>
-                                    <th>Promotion Starting Date</th>
-                                    <th>Promotion Ending At</th>
-                                    <th>Promotion Discount</th>
-                                    <th>Promotion Price</th>
-                                    <th>Created Date</th>
-                                    <th>Created By</th>
-                                    <th>Approve Status</th>
-                                    <th>Active Status</th>
-                                    <th>Action</th>
+                                    <th>{{ __('#') }}</th>
+                                    <th>{{ __('Title') }}</th>
+                                    <th>{{ __('Slug') }}</th>
+                                    <th>{{ __('Promotion Starting Date') }}</th>
+                                    <th>{{ __('Promotion Ending At') }}</th>
+                                    <th>{{ __('Promotion Discount') }}</th>
+                                    <th>{{ __('Promotion Price') }}</th>
+                                    <th>{{ __('Created Date') }}</th>
+                                    <th>{{ __('Created By') }}</th>
+                                    <th>{{ __('Approve Status') }}</th>
+                                    <th>{{ __('Active Status') }}</th>
+                                    <th>{{ __('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
