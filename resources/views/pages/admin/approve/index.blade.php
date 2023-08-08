@@ -385,4 +385,66 @@
         </div>
     @endif
 
+    @if ($rowOfferCount > 0)
+        <div class="row">
+            <div class="col-md-12">
+                <h6>{{ __('Offer Need to Approve') }}</h6>
+                <div class="card">
+                    <div class="card-body mt-2">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background: #e9ecef">
+                                    <tr>
+                                        <th>{{ __('#') }}</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Offer Starting Date') }}</th>
+                                        <th>{{ __('Offer Ending At') }}</th>
+                                        <th>{{ __('Offer Discount') }}</th>
+                                        <th>{{ __('Offer Price') }}</th>
+                                        <th>{{ __('Created Date') }}</th>
+                                        <th>{{ __('Created By') }}</th>
+                                        <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Action') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($offer as $offerItems)
+                                        <tr>
+                                            <td>#</td>
+                                            <td>{{ $offerItems->title }}</td>
+                                            <td>{{ $offerItems->slug }}</td>
+                                            <td>{{ $offerItems->offer_starting_date }}</td>
+                                            <td>{{ $offerItems->offer_ends_at }}</td>
+                                            <td>{{ $offerItems->offer_discount }}</td>
+                                            <td>{{ $offerItems->offer_price }}</td>
+                                            <td>{{ $offerItems->created_at }}</td>
+                                            <td>{{ $offerItems->created_by }}</td>
+                                            <td>
+                                                @if ($offerItems->approve_status == '0')
+                                                    <span
+                                                        class="badge badge-danger text-bg-warning rounded-pill p-1 px-2 text-white">Waiting
+                                                        for Approve </span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('admin/approval/' . $offerItems->id . '/offer_approval') }}"
+                                                    onclick="return confirm('are you sure you want to approve this offer')">
+                                                    <i class="fa-solid fa-circle-check text-success mx-auto"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <span>No Promotions</span>
+                                    @endforelse
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 @endsection

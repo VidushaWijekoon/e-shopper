@@ -16,6 +16,10 @@
         @include('pages.frontend.new_arrivals.index')
     </div>
 
+    <div class="container mt-5">
+        @include('pages.frontend.promotions.index')
+    </div>
+
     <div class="container mt-5 bg-info p-5">
         @include('pages.frontend.box_icons.index')
     </div>

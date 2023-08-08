@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Approve;
 
-use App\Models\Category;
-use App\Models\Color;
 use App\Models\Brand;
-use App\Models\Product;
+use App\Models\Color;
+use App\Models\Offer;
 use App\Models\Slider;
-use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\Category;
 use App\Models\Promotion;
+use App\Http\Controllers\Controller;
 
 class ApproveController extends Controller
 {
@@ -20,6 +21,7 @@ class ApproveController extends Controller
         $product = Product::where('approve_status', '0')->get();
         $slider = Slider::where('approve_status', '0')->get();
         $promotion = Promotion::where('approve_status', '0')->get();
+        $offer = Offer::where('approve_status', '0')->get();
 
         $rowCategoryCount = Category::where('approve_status', '0')->count();
         $rowColorCount = Color::where('approve_status', '0')->count();
@@ -27,6 +29,7 @@ class ApproveController extends Controller
         $rowProductCount = Product::where('approve_status', '0')->count();
         $rowSliderCount = Slider::where('approve_status', '0')->count();
         $rowPromotionCount = Promotion::where('approve_status', '0')->count();
+        $rowOfferCount = Offer::where('approve_status', '0')->count();
 
         return view('pages.admin.approve.index', compact(
             'categories',
@@ -35,12 +38,14 @@ class ApproveController extends Controller
             'brand',
             'slider',
             'promotion',
+            'offer',
             'rowCategoryCount',
             'rowColorCount',
             'rowBrandCount',
             'rowProductCount',
             'rowSliderCount',
-            'rowPromotionCount'
+            'rowPromotionCount',
+            'rowOfferCount'
         ));
     }
 
@@ -91,5 +96,13 @@ class ApproveController extends Controller
         $promotion->approve_status = '1';
         $promotion->update();
         return redirect()->back()->with('message', 'Promotion Has Been Approved');
+    }
+
+    public function offer_approval($offer)
+    {
+        $offer = Offer::findOrFail($offer);
+        $offer->approve_status = '1';
+        $offer->update();
+        return redirect()->back()->with('message', 'Offer Has Been Approved');
     }
 }

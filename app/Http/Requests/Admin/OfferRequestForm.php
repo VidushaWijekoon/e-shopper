@@ -11,7 +11,7 @@ class OfferRequestForm extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class OfferRequestForm extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string'],
+            'slug' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'offer_starting_date' => ['required', 'date'],
+            'offer_ends_at' => ['required', 'date'],
+            'offer_discount' => ['required', 'integer'],
+            'offer_price' => ['required', 'integer'],
         ];
     }
 }

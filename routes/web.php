@@ -105,7 +105,7 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::controller(PromotionsController::class)->group(function () {
         Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
         Route::get('/prmotion', 'promotion_index')->name('admin.promotions_index');
-        Route::get('/promotion/create-promotion', 'create')->name('admin.promotion.create');
+        Route::get('/promotion/create-new-promotion', 'create')->name('admin.promotion.create');
         Route::post('/promotion/', 'store')->name('admin.promotion.store');
         Route::get('/promotion/{promotion}/show', 'show')->name('admin.promotion.show');
         Route::get('/promotion/{promotion}/edit', 'edit')->name('admin.promotion.edit');
@@ -117,12 +117,28 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 
     Route::controller(OffersController::class)->group(function () {
         Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
-        Route::get('/offers', 'offers')->name('admin.offers');
+        Route::get('/offer', 'offer_index')->name('admin.offer_index');
+        Route::get('/offer/create-new-offer', 'create')->name('admin.offer.create');
+        Route::post('/offer/', 'store')->name('admin.offer.store');
+        Route::get('/offer/{offer}/show', 'show')->name('admin.offer.show');
+        Route::get('/offer/{offer}/edit', 'edit')->name('admin.offer.edit');
+        Route::put('/offer/{offer}/', 'update')->name('admin.offer.update');
+        Route::get('/offer/{offer}/destroy', 'destroy')->name('admin.offer.destroy');
+        Route::get('/offer/{offer}/activate', 'activate')->name('admin.offer.activate');
+        Route::get('/offer/{offer}/dectivate', 'dectivate')->name('admin.offer.dectivate');
     });
 
     Route::controller(CoupensController::class)->group(function () {
         Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
-        Route::get('/coupens', 'coupens')->name('admin.coupens');
+        Route::get('/coupen', 'coupen_index')->name('admin.coupen_index');
+        Route::get('/coupen/create-new-coupen', 'create')->name('admin.coupen.create');
+        Route::post('/coupen/', 'store')->name('admin.coupen.store');
+        Route::get('/coupen/{coupen}/show', 'show')->name('admin.coupen.show');
+        Route::get('/coupen/{coupen}/edit', 'edit')->name('admin.coupen.edit');
+        Route::put('/coupen/{coupen}/', 'update')->name('admin.coupen.update');
+        Route::get('/coupen/{coupen}/destroy', 'destroy')->name('admin.coupen.destroy');
+        Route::get('/coupen/{coupen}/activate', 'activate')->name('admin.coupen.activate');
+        Route::get('/coupen/{coupen}/dectivate', 'dectivate')->name('admin.coupen.dectivate');
     });
 
     Route::controller(UsersContoller::class)->group(function () {
@@ -138,5 +154,6 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/approval/{product}/product_approval', 'product_approval')->name('product_approval');
         Route::get('/approval/{slider}/slider_approval', 'slider_approval')->name('slider_approval');
         Route::get('/approval/{promotion}/promotion_approval', 'promotion_approval')->name('promotion_approval');
+        Route::get('/approval/{offer}/offer_approval', 'offer_approval')->name('offer_approval');
     });
 });

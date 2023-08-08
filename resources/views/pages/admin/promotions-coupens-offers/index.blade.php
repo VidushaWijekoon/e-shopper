@@ -14,7 +14,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body d-flex align-items-center justify-content-between">
-                    <a href="{{ route('admin.offers') }}">
+                    <a href="{{ route('admin.offer_index') }}">
                         <h2 class="">Offers</h2>
                     </a>
                     <h3 class="card-text" style="font-weight: bold">10</h3>
@@ -24,7 +24,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body d-flex align-items-center justify-content-between">
-                    <a href="{{ route('admin.coupens') }}">
+                    <a href="{{ route('admin.coupen_index') }}">
                         <h2 class="">Coupens</h2>
                     </a>
                     <h3 class="card-text" style="font-weight: bold">10</h3>
