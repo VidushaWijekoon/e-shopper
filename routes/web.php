@@ -9,11 +9,13 @@ use App\Http\Controllers\Admin\Approve\ApproveController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Frontend\Home\FrontendController;
 use App\Http\Controllers\Admin\Category\CategoryController;
-use App\Http\Controllers\Admin\Coupens\CoupensController;
 use App\Http\Controllers\Admin\Home\AdminHomepageController;
 use App\Http\Controllers\Admin\Offers\OffersController;
 use App\Http\Controllers\Admin\Promotions\PromotionsController;
 use App\Http\Controllers\Admin\Users\UsersContoller;
+use App\Http\Controllers\Frontend\Cart\CartController;
+use App\Http\Controllers\Frontend\Checkout\CheckoutController;
+use App\Http\Controllers\Frontend\Wishlist\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,14 +29,6 @@ use App\Http\Controllers\Admin\Users\UsersContoller;
 */
 
 Auth::routes();
-
-Route::prefix('/')->group(function () {
-    Route::controller(FrontendController::class)->group(function () {
-        Route::get('/', 'index')->name('frontend.index');
-        Route::get('/collections/{category_slug}/', 'product')->name('frontend.product.index');
-    });
-});
-
 
 Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
     Route::controller(AdminHomepageController::class)->group(function () {
@@ -128,18 +122,8 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/offer/{offer}/dectivate', 'dectivate')->name('admin.offer.dectivate');
     });
 
-    Route::controller(CoupensController::class)->group(function () {
-        Route::get('/promotions-coupens-offers', 'index')->name('admin.promotions.coupens.offers');
-        Route::get('/coupen', 'coupen_index')->name('admin.coupen_index');
-        Route::get('/coupen/create-new-coupen', 'create')->name('admin.coupen.create');
-        Route::post('/coupen/', 'store')->name('admin.coupen.store');
-        Route::get('/coupen/{coupen}/show', 'show')->name('admin.coupen.show');
-        Route::get('/coupen/{coupen}/edit', 'edit')->name('admin.coupen.edit');
-        Route::put('/coupen/{coupen}/', 'update')->name('admin.coupen.update');
-        Route::get('/coupen/{coupen}/destroy', 'destroy')->name('admin.coupen.destroy');
-        Route::get('/coupen/{coupen}/activate', 'activate')->name('admin.coupen.activate');
-        Route::get('/coupen/{coupen}/dectivate', 'dectivate')->name('admin.coupen.dectivate');
-    });
+    //  Livewire
+    Route::get('/coupens', App\Http\Livewire\Admin\Coupen\Index::class)->name('admin.coupens');
 
     Route::controller(UsersContoller::class)->group(function () {
         Route::get('/users', 'index')->name('admin.users');
@@ -155,5 +139,24 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/approval/{slider}/slider_approval', 'slider_approval')->name('slider_approval');
         Route::get('/approval/{promotion}/promotion_approval', 'promotion_approval')->name('promotion_approval');
         Route::get('/approval/{offer}/offer_approval', 'offer_approval')->name('offer_approval');
+    });
+});
+
+Route::prefix('/')->group(function () {
+    Route::controller(FrontendController::class)->group(function () {
+        Route::get('/', 'index')->name('frontend.index');
+        Route::get('/collections/{category_slug}/', 'product')->name('frontend.product.index');
+    });
+
+    Route::controller(CartController::class)->group(function () {
+        Route::get('/cart/', 'index')->name('frontend.cart');
+    });
+
+    Route::controller(WishlistController::class)->group(function () {
+        Route::get('/wishlist/', 'index')->name('frontend.wishlist');
+    });
+
+    Route::controller(CheckoutController::class)->group(function () {
+        Route::get('/checkout/', 'index')->name('frontend.checkout');
     });
 });

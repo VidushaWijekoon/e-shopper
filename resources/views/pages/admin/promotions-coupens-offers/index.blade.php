@@ -24,7 +24,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body d-flex align-items-center justify-content-between">
-                    <a href="{{ route('admin.coupen_index') }}">
+                    <a href="{{ route('admin.coupens') }}">
                         <h2 class="">Coupens</h2>
                     </a>
                     <h3 class="card-text" style="font-weight: bold">10</h3>
