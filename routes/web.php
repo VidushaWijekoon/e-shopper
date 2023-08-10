@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Approve\ApproveController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Frontend\Home\FrontendController;
 use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Coupen\CoupenController;
 use App\Http\Controllers\Admin\Home\AdminHomepageController;
 use App\Http\Controllers\Admin\Offers\OffersController;
 use App\Http\Controllers\Admin\Promotions\PromotionsController;
@@ -122,8 +123,12 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/offer/{offer}/dectivate', 'dectivate')->name('admin.offer.dectivate');
     });
 
-    //  Livewire
+    //  Livewire Coupen
     Route::get('/coupens', App\Http\Livewire\Admin\Coupen\Index::class)->name('admin.coupens');
+    Route::controller(CoupenController::class)->group(function () {
+        Route::get('/coupen/{coupen}/activate', 'activate')->name('admin.coupen.activate');
+        Route::get('/coupen/{coupen}/dectivate', 'dectivate')->name('admin.coupen.dectivate');
+    });
 
     Route::controller(UsersContoller::class)->group(function () {
         Route::get('/users', 'index')->name('admin.users');
@@ -139,6 +144,7 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/approval/{slider}/slider_approval', 'slider_approval')->name('slider_approval');
         Route::get('/approval/{promotion}/promotion_approval', 'promotion_approval')->name('promotion_approval');
         Route::get('/approval/{offer}/offer_approval', 'offer_approval')->name('offer_approval');
+        Route::get('/approval/{coupen}/coupen_approval', 'coupen_approval')->name('coupen_approval');
     });
 });
 

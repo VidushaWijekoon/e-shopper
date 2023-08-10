@@ -15,11 +15,11 @@ class Coupen extends Model
         'title',
         'slug',
         'description',
-        'offer_starting_date',
-        'offer_ends_at',
-        'offer_discount',
-        'offer_price',
-        'image',
+        'coupen_number',
+        'coupen_percentage',
+        'description',
+        'active_status',
+        'approve_status',
         'created_by',
         'approved_by'
     ];

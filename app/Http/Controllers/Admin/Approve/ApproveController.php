@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Promotion;
 use App\Http\Controllers\Controller;
+use App\Models\Coupen;
 
 class ApproveController extends Controller
 {
@@ -22,6 +23,7 @@ class ApproveController extends Controller
         $slider = Slider::where('approve_status', '0')->get();
         $promotion = Promotion::where('approve_status', '0')->get();
         $offer = Offer::where('approve_status', '0')->get();
+        $coupen = Coupen::where('approve_status', '0')->get();
 
         $rowCategoryCount = Category::where('approve_status', '0')->count();
         $rowColorCount = Color::where('approve_status', '0')->count();
@@ -30,6 +32,7 @@ class ApproveController extends Controller
         $rowSliderCount = Slider::where('approve_status', '0')->count();
         $rowPromotionCount = Promotion::where('approve_status', '0')->count();
         $rowOfferCount = Offer::where('approve_status', '0')->count();
+        $rowCoupenCount = Coupen::where('approve_status', '0')->count();
 
         return view('pages.admin.approve.index', compact(
             'categories',
@@ -39,13 +42,15 @@ class ApproveController extends Controller
             'slider',
             'promotion',
             'offer',
+            'coupen',
             'rowCategoryCount',
             'rowColorCount',
             'rowBrandCount',
             'rowProductCount',
             'rowSliderCount',
             'rowPromotionCount',
-            'rowOfferCount'
+            'rowOfferCount',
+            'rowCoupenCount',
         ));
     }
 
@@ -104,5 +109,13 @@ class ApproveController extends Controller
         $offer->approve_status = '1';
         $offer->update();
         return redirect()->back()->with('message', 'Offer Has Been Approved');
+    }
+
+    public function coupen_approval($coupen)
+    {
+        $coupen = Coupen::findOrFail($coupen);
+        $coupen->approve_status = '1';
+        $coupen->update();
+        return redirect()->back()->with('message', 'Coupen Has Been Approved');
     }
 }

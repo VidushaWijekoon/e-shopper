@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->date('coupen_number');
             $table->integer('coupen_percentage');
+            $table->tinyText('description');
             $table->tinyInteger('active_status')->default('0')->nullable()->comment('0=Inactive, 1=Active');
             $table->tinyInteger('approve_status')->default('0')->nullable()->comment('0=Pending, 1=Approve');
             $table->unsignedBigInteger('created_by')->default('0')->nullable();

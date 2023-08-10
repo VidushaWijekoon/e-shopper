@@ -447,4 +447,63 @@
         </div>
     @endif
 
+    @if ($rowCoupenCount > 0)
+        <div class="row">
+            <div class="col-md-12">
+                <h6>{{ __('Coupen Wait for Approve') }}</h6>
+                <div class="card">
+                    <div class="card-body mt-2">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background: #e9ecef">
+                                    <tr>
+                                        <th>{{ __('#') }}</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Slug') }}</th>
+                                        <th>{{ __('Coupen Number') }}</th>
+                                        <th>{{ __('Coupen Percentage') }}</th>
+                                        <th>{{ __('Description') }}</th>
+                                        <th>{{ __('Created Date') }}</th>
+                                        <th>{{ __('Created By') }}</th>
+                                        <th>{{ __('Active Status') }}</th>
+                                        <th>{{ __('Action') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($coupen as $coupenItems)
+                                        <tr>
+                                            <td>#</td>
+                                            <td>{{ $coupenItems->title }}</td>
+                                            <td>{{ $coupenItems->slug }}</td>
+                                            <td>{{ $coupenItems->coupen_number }}</td>
+                                            <td>{{ $coupenItems->coupen_percentage }} {{ __('%') }}</td>
+                                            <td>{{ $coupenItems->description }}</td>
+                                            <td>{{ $coupenItems->created_at }}</td>
+                                            <td>{{ $coupenItems->created_by }}</td>
+                                            <td>
+                                                @if ($coupenItems->approve_status == '0')
+                                                    <span
+                                                        class="badge badge-danger text-bg-warning rounded-pill p-1 px-2 text-white">Waiting
+                                                        for Approve </span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('admin/approval/' . $coupenItems->id . '/coupen_approval') }}"
+                                                    onclick="return confirm('are you sure you want to approve this offer')">
+                                                    <i class="fa-solid fa-circle-check text-success mx-auto"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <span>No Promotions</span>
+                                    @endforelse
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
