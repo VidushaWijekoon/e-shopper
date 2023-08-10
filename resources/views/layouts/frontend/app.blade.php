@@ -31,6 +31,18 @@
 
 <body>
 
+    <div class="page-wrapper">
+        <header class="header header-12">
+            @include('components.frontend.header-middle')
+            @include('components.frontend.header-bottom')
+        </header>
+
+        <main class="main">
+            @yield('content')
+        </main>
+        @include('components.frontend.footer')
+    </div>
+
     @include('libraries.frontend.scripts')
     @livewireScripts
 </body>

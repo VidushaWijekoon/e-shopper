@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\Home\AdminHomepageController;
 use App\Http\Controllers\Admin\Offers\OffersController;
 use App\Http\Controllers\Admin\Promotions\PromotionsController;
 use App\Http\Controllers\Admin\Users\UsersContoller;
+use App\Http\Controllers\Frontend\AccountController;
+use App\Http\Controllers\Frontend\Accounts\AccountController as AccountsAccountController;
 use App\Http\Controllers\Frontend\Cart\CartController;
 use App\Http\Controllers\Frontend\Checkout\CheckoutController;
 use App\Http\Controllers\Frontend\Wishlist\WishlistController;

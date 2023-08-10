@@ -1,0 +1,10 @@
+@extends('layouts.frontend.app')
+@section('content')
+    @include('pages.frontend.banner.index')
+    @include('pages.frontend.product.index')
+    @include('pages.frontend.categories.index')
+    @include('pages.frontend.banner-group.index')
+    @include('pages.frontend.new_arrivals.index')
+    @include('pages.frontend.cta.index')
+    @include('pages.frontend.recommendation.index')
+@endsection
