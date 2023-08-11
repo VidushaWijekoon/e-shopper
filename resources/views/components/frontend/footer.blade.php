@@ -18,7 +18,7 @@
                                 <div class="col-sm-6 col-md-8">
                                     <span class="widget-about-title">Payment Method</span>
                                     <figure class="footer-payments">
-                                        <img src="assets/images/payments.png" alt="Payment methods" width="272"
+                                        <img src="{{ asset('img/payments.png') }}" alt="Payment methods" width="272"
                                             height="20">
                                     </figure>
                                 </div>

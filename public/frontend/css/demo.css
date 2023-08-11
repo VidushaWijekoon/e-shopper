@@ -302,6 +302,7 @@
     background-position: center center;
 }
 .intro-slide .intro-content {
+    padding: 10rem;
     position: static;
     left: auto;
     top: auto;
@@ -852,7 +853,7 @@
 @media screen and (min-width: 992px) {
     .intro-slider-container,
     .intro-slide {
-        height: 400px;
+        height: 530px !important;
     }
     .intro-price {
         font-size: 4.4rem;

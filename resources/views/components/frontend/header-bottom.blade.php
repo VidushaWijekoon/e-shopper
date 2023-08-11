@@ -48,7 +48,14 @@
 
             <div class="header-right">
                 <i class="la la-lightbulb-o"></i>
-                <p>Clearance Up to 30% Off</p>
+                <li
+                    style="list-style-type: none;
+                            text-decoration: none;
+                            margin: 0 50px;">
+                    <a href="#signin-modal" data-toggle="modal">Log in </a>
+                    <span class="mx-3">|</span>
+                    <a href="#signin-modal" data-toggle="modal">Register</a>
+                </li>
             </div>
         </div>
     </div>

@@ -10,6 +10,5 @@
 <link rel="stylesheet" href="{{ asset('vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css') }}">
 
 <!-- Main CSS File -->
-<link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/demo.css') }}">
