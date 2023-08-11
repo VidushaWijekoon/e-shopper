@@ -14,8 +14,7 @@ use App\Http\Controllers\Admin\Home\AdminHomepageController;
 use App\Http\Controllers\Admin\Offers\OffersController;
 use App\Http\Controllers\Admin\Promotions\PromotionsController;
 use App\Http\Controllers\Admin\Users\UsersContoller;
-use App\Http\Controllers\Frontend\AccountController;
-use App\Http\Controllers\Frontend\Accounts\AccountController as AccountsAccountController;
+use App\Http\Controllers\Frontend\Accounts\AccountsDashboardController;
 use App\Http\Controllers\Frontend\Cart\CartController;
 use App\Http\Controllers\Frontend\Checkout\CheckoutController;
 use App\Http\Controllers\Frontend\Wishlist\WishlistController;
@@ -153,7 +152,8 @@ Route::prefix('/admin')->middleware('auth', 'isAdmin')->group(function () {
 Route::prefix('/')->group(function () {
     Route::controller(FrontendController::class)->group(function () {
         Route::get('/', 'index')->name('frontend.index');
-        Route::get('/collections/{category_slug}/', 'product')->name('frontend.product.index');
+        Route::get('/products/{category_slug}', 'products')->name('frontend.products.index');
+        Route::get('/products/{category_slug}/{product_slug}',  'productView')->name('frontend.product.productView');
     });
 
     Route::controller(CartController::class)->group(function () {
@@ -166,5 +166,9 @@ Route::prefix('/')->group(function () {
 
     Route::controller(CheckoutController::class)->group(function () {
         Route::get('/checkout/', 'index')->name('frontend.checkout');
+    });
+
+    Route::controller(AccountsDashboardController::class)->group(function () {
+        Route::get('/accounts-dashboard/', 'index')->name('frontend.accounts-dashboard');
     });
 });

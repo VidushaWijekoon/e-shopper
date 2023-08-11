@@ -56,14 +56,27 @@
                     </a>
                 </div>
 
-                <div class="account">
-                    <a href="#" title="My account">
-                        <div class="icon">
-                            <i class="icon-user"></i>
+                @guest
+                    @if (Route::has('login'))
+                        <div class="account">
+                            <a href="#" title="My account">
+                                <div class="icon">
+                                    <i class="icon-user"></i>
+                                </div>
+                                <p>Account</p>
+                            </a>
                         </div>
-                        <p>Account</p>
-                    </a>
-                </div>
+                    @endif
+                @else
+                    <div class="account">
+                        <a href="{{ route('frontend.accounts-dashboard') }}" title="My account">
+                            <div class="icon">
+                                <i class="icon-user"></i>
+                            </div>
+                            <p>{{ ucfirst(Auth::user()->name) }}</p>
+                        </a>
+                    </div>
+                @endguest
 
             </div>
         </div>
