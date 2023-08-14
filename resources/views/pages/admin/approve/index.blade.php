@@ -5,9 +5,26 @@
         <div class="alert alert-success bg-info p-2 mb-3 text-white" id="alert">{{ session('message') }}</div>
     @endif
 
-    <div class="title">
-        <h2 class="mb-3">{{ __('Waiting for Appproval') }}</h2>
-    </div>
+    @if (
+        $rowCategoryCount === 0 &&
+            $rowColorCount === 0 &&
+            $rowBrandCount === 0 &&
+            $rowProductCount === 0 &&
+            $rowProductCount === 0 &&
+            $rowSliderCount === 0 &&
+            $rowPromotionCount == 0 &&
+            $rowOfferCount === 0 &&
+            $rowCoupenCount === 0)
+        <div class="title">
+            <h2 class="mb-3 text-capitalize">{{ __('No Appprovals are currently available') }}</h2>
+        </div>
+    @else
+        <div class="title">
+            <h2 class="mb-3 text-capitalize">{{ __('Waiting for Appproval') }}</h2>
+        </div>
+    @endif
+
+
 
     @if ($rowCategoryCount > 0)
         <div class="row">

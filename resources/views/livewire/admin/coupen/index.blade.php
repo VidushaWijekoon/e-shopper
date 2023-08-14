@@ -8,7 +8,7 @@
             <div class="card-header">
                 <span class="card-title mb-0 d-flex justify-content-between">
                     <h4 class="d-flex align-items-center mt-auto">Coupens</h4>
-                    <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                    <a href="#" class="btn btn-sm btn-primary p-1" data-bs-toggle="modal"
                         data-bs-target="#add_coupen">Create New
                         Coupen</a>
                 </span>

@@ -8,7 +8,7 @@
             <div class="card-header">
                 <span class="card-title mb-0 d-flex justify-content-between">
                     <h4 class="d-flex align-items-center mt-auto">Sliders</h4>
-                    <a href="{{ route('admin.slider.create') }}" class="btn btn-sm btn-primary">Create New
+                    <a href="{{ route('admin.slider.create') }}" class="btn btn-sm btn-primary p-1">Create New
                         Slider</a>
                 </span>
             </div>

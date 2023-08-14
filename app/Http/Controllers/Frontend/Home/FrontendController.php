@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Home;
 use App\Models\Slider;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
+use App\Models\Offer;
 use App\Models\Promotion;
 
 class FrontendController extends Controller
@@ -14,7 +15,14 @@ class FrontendController extends Controller
         $slider = Slider::where('active_status', '1')->where('approve_status', '1')->get();
         $categories = Category::where('active_status', '1')->where('approve_status', '1')->get();
         $promotions = Promotion::where('active_status', '1')->where('approve_status', '1')->get();
-        return view('pages.frontend.home.index', ['slider' => $slider, 'categories' => $categories, 'promotions' => $promotions]);
+        $offers = Offer::where('active_status', '1')->where('approve_status', '1')->get();
+
+        return view('pages.frontend.home.index', [
+            'slider' => $slider,
+            'categories' => $categories,
+            'promotions' => $promotions,
+            'offers' => $offers
+        ]);
     }
 
     public function products($category_slug)

@@ -19,3 +19,7 @@ body {
     font-size: 12px;
     text-indent: 8px;
 }
+
+a {
+    text-decoration: none !important;
+}

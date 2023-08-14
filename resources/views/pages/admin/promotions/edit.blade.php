@@ -110,7 +110,7 @@
                                 <label for="Image" class="form-label">Image
                                     <span class="text-danger">*</span>
                                 </label>
-                                <img src="{{ asset($promotion->image) }}" alt={{ $promotion->title }} />
+                                <img class="w-100" src={{ asset($promotion->image) }} alt={{ $promotion->title }} />
                                 <input type="file" id="Image" class="form-control mt-3" name="image"
                                     accept="image/x-png, image/gif, image/jpeg, image/png, image/jpg">
                                 @error('image')

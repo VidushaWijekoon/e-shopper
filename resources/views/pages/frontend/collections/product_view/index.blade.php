@@ -29,8 +29,8 @@
 
                                 <div id="product-zoom-gallery" class="product-image-gallery">
                                     @foreach ($product->productImages as $image)
-                                        <img src="{{ asset($image->image) }}" alt="{{ $image->id }}" width="80"
-                                            class="mx-3">
+                                        <img src="{{ asset($image->image) }}" alt="{{ $image->id }}" class="mx-3"
+                                            style="width: 100px; height: 100px">
                                     @endforeach
                                 </div>
                             </div>

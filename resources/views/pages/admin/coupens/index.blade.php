@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <span class="card-title mb-0 d-flex justify-content-between">
                         <h4 class="d-flex align-items-center mt-auto">Coupens</h4>
-                        <a href="{{ route('admin.promotion.create') }}" class="btn btn-sm btn-primary">Create New
+                        <a href="{{ route('admin.promotion.create') }}" class="btn btn-sm btn-primary p-1">Create New
                             Coupen</a>
                     </span>
                 </div>

@@ -1,16 +1,14 @@
-<div class="container mt-5">
-    <div class="cta cta-border mb-5" style="background-image: url({{ asset('img/bg-1.jpg') }});">
-        <img src="{{ asset('img/camera.png') }}" alt="camera" class="cta-img">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="cta-content">
-                    <div class="cta-text text-right text-white">
-                        <p>Shop Today’s Deals <br><strong>Awesome Made Easy. HERO7 Black</strong></p>
-                    </div><!-- End .cta-text -->
-                    <a href="#" class="btn btn-primary btn-round"><span>Shop Now - $429.99</span><i
-                            class="icon-long-arrow-right"></i></a>
-                </div><!-- End .cta-content -->
-            </div><!-- End .col-md-12 -->
-        </div><!-- End .row -->
-    </div><!-- End .cta -->
-</div><!-- End .container -->
+<div class="container">
+    <hr class="mb-4">
+    <div class="row">
+        <div class="col-12">
+            @foreach ($offers as $offerItems)
+                <div class="banner banner-big">
+                    <a href="#">
+                        <img src="{{ asset($offerItems->image) }}" alt="Banner">
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>

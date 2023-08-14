@@ -83,8 +83,7 @@
                                 <label for="Image" class="form-label">Image
                                     <span class="text-danger">*</span>
                                 </label>
-                                <img src={{ asset($promotion->image) }} alt={{ $promotion->title }}>
-
+                                <img class="w-100" src={{ asset($promotion->image) }} alt={{ $promotion->title }} />
                             </div>
                         </div>
 

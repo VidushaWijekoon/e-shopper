@@ -9,7 +9,7 @@
             <div class="card-header">
                 <span class="card-title mb-0 d-flex justify-content-between">
                     <h4 class="d-flex align-items-center mt-auto">Products</h4>
-                    <a href="{{ route('admin.product.create') }}" class="btn btn-sm btn-primary">Create New
+                    <a href="{{ route('admin.product.create') }}" class="btn btn-sm btn-primary p-1">Create New
                         Product</a>
                 </span>
             </div>

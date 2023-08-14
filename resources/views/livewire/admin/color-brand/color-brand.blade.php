@@ -11,7 +11,7 @@
             <div class="card-header">
                 <span class="card-title mb-0 d-flex justify-content-between">
                     <h4 class="d-flex align-items-center mt-auto">Colors</h4>
-                    <a href="{{ route('admin.color.create') }}" class="btn btn-sm btn-primary">Create New
+                    <a href="{{ route('admin.color.create') }}" class="btn btn-sm btn-primary p-1">Create New
                         Color</a>
                 </span>
             </div>
@@ -107,7 +107,7 @@
             <div class="card-header">
                 <span class="card-title mb-0 d-flex justify-content-between">
                     <h4 class="d-flex align-items-center mt-auto">Brands</h4>
-                    <a href="{{ route('admin.brand.create') }}" class="btn btn-sm btn-primary">Create New
+                    <a href="{{ route('admin.brand.create') }}" class="btn btn-sm btn-primary p-1">Create New
                         Brand</a>
                 </span>
             </div>

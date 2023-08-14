@@ -54,6 +54,32 @@
 
                         <div class="row mb-3">
                             <div class="col-md-12">
+                                <label for="SKU Number" class="form-label">SKU Number
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" id="SKU Number" class="form-control" placeholder="SKU Number"
+                                    name="sku_number">
+                                @error('sku_number')
+                                    <span class="text-danger mt-1">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="Product Reference Number" class="form-label">Product Reference Number
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" id="Product Reference Number" class="form-control"
+                                    placeholder="Product Reference Number" name="product_reference_number">
+                                @error('product_reference_number')
+                                    <span class="text-danger mt-1">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
                                 <label for="Title" class="form-label">Product Name
                                     <span class="text-danger">*</span>
                                 </label>
@@ -126,7 +152,8 @@
                                 <label for="Title" class="form-label">Short Description
                                     <span class="text-danger">*</span>
                                 </label>
-                                <textarea id="" rows="3" name="short_description" class="form-control" placeholder="Short Description"></textarea>
+                                <textarea id="" rows="3" name="short_description" class="form-control"
+                                    placeholder="Short Description"></textarea>
                                 @error('short_description')
                                     <span class="text-danger mt-1">{{ $message }}</span>
                                 @enderror
@@ -327,6 +354,34 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-header text-white" style="background: #222e3c">
+                        Additonal Important Informations (Add All the Additional Details Including (Height/Width/Weight))
+                    </div>
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table id="emptbl" class="table table-bordered table-hover">
+
+
+                                <tbody id="tbody">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <table class="mb-3 mx-auto">
+                            <tr class="">
+                                <td>
+                                    <input type="button" value="Add Container" onclick="addItem()"
+                                        class="btn btn-sm btn-primary mx-2 text-white" />
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-12 d-flex justify-content-end">
@@ -337,3 +392,29 @@
     </form>
 
 @endsection
+
+<script>
+    var items = 0;
+
+    function addItem() {
+        items++;
+
+        var html = "<tr>";
+        html += "<td>" + items + "</td>";
+        html +=
+            '<td><textarea name="marks_and_nos_container_and_seals[]" class="form-control form-control-sm" rows="1" required></textarea></td>';
+        html +=
+            '<td><textarea name="no_and_kind_of_packages[]" class="form-control form-control-sm" rows="1" required></textarea></td>';
+        html +=
+            "<td><button type='button' class='btn btn-sm btn-danger' onclick='deleteRow(this);'>Delete</button></td>";
+        html += "</tr>";
+
+        var row = document.getElementById("tbody").insertRow();
+        row.innerHTML = html;
+    }
+
+    function deleteRow(button) {
+        items--;
+        button.parentElement.parentElement.remove();
+    }
+</script>

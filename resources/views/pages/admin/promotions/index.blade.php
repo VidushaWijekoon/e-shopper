@@ -11,8 +11,8 @@
                     <span class="card-title mb-0 d-flex justify-content-between">
                         <h4 class="d-flex align-items-center mt-auto">{{ __('Promotions') }}</h4>
                         <a href="{{ route('admin.promotion.create') }}"
-                            class="btn btn-sm btn-primary">{{ __('Create New
-                                                                                                                                                                        Promotion') }}</a>
+                            class="btn btn-sm btn-primary p-1">{{ __('Create New
+                                                                                                                                                                                                    Promotion') }}</a>
                     </span>
                 </div>
                 <div class="card-body">
