@@ -11,10 +11,6 @@
                             luctus, metus. </p>
                         <div class="widget-about-info">
                             <div class="row">
-                                <div class="col-sm-6 col-md-4">
-                                    <span class="widget-about-title">Got Question? Call us 24/7</span>
-                                    <a href="tel:123456789">+0123 456 789</a>
-                                </div>
                                 <div class="col-sm-6 col-md-8">
                                     <span class="widget-about-title">Payment Method</span>
                                     <figure class="footer-payments">
@@ -76,25 +72,12 @@
 
     <div class="footer-bottom">
         <div class="container">
-            <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p>
+            <p class="footer-copyright">Copyright © 2023 JBMM International. All Rights Reserved. Powered By RTech
+                International</p>
             <ul class="footer-menu">
                 <li><a href="#">Terms Of Use</a></li>
                 <li><a href="#">Privacy Policy</a></li>
             </ul>
-
-            <div class="social-icons social-icons-color">
-                <span class="social-label">Social Media</span>
-                <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i
-                        class="icon-facebook-f"></i></a>
-                <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i
-                        class="icon-twitter"></i></a>
-                <a href="#" class="social-icon social-instagram" title="Instagram" target="_blank"><i
-                        class="icon-instagram"></i></a>
-                <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i
-                        class="icon-youtube"></i></a>
-                <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i
-                        class="icon-pinterest"></i></a>
-            </div>
         </div>
     </div>
 </footer>
